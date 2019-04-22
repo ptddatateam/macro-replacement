@@ -1,6 +1,10 @@
 import pymysql.cursors
 import pandas as pd
 import numpy as np
+import datetime
+import os
+import statewide_transit_rollup
+
 
 # TODO group all utility functions together; place each function in the order that they are representd in the main function
 
@@ -398,7 +402,7 @@ def fix_up_agencylist(agencylist):
     return agencylist
 
 
-def main(year1, year2, year3):
+def main(year1, year2, year3, path):
     print('Hurry up and get your coffee, because this program is fast')
     # pulls the dataframe out of the aether, and constructs an original dataset
     df = dataset_builder(year1, year2, year3)
@@ -454,9 +458,12 @@ def main(year1, year2, year3):
         # renames the category column to '' so that it is readable
        xdf = xdf.rename(columns = {'category': 'Annual Operating Information'})
        xdf = xdf.replace('$0.0', '$0')
-        # outputs to a file path
-        # TODO anonynmize this so that a path can be passed through the main function
-       xdf.to_excel('I:\\Public_Transportation\\Data_Team\\PT_Summary\\PythonFiles\\testfolder\\{}.xlsx'.format(agnc), index = False)
+       # outputs to a file path
+       # TODO anonynmize this so that a path can be passed through the main function
+       date = datetime.date.today().strftime("%m-%d")
+       if os.path.exists(path + '\\transits-{}'.format(date)) == False:
+           os.mkdir(path + '\\transits-{}'.format(date))
+       xdf.to_excel(path + '\\transits-{}'.format(date) +'\\' + '{}.xlsx'.format(agnc), index = False)
     finaldf = ds.revenue_expense_formulas(finaldf)
     finaldf = ds.empty_row_dropper(finaldf)
     finaldf = ds.mode_aggregator(finaldf, ds.mode_list)
@@ -468,6 +475,6 @@ def main(year1, year2, year3):
     finaldf = ds.fin_opp_sum_category_names(finaldf)
     finaldf = finaldf.rename(columns={'category': ''})
     finaldf = finaldf.replace('$0.0', '$0')
-    finaldf.to_excel('I:\\Public_Transportation\\Data_Team\\PT_Summary\\PythonFiles\\testfolder\\{} SW Fin Summ.xlsx'.format(year3), index = False)
-if __name__ == "__main__":
-    main(2015, 2016, 2017)
+    new_path = path + '\\transits-{}'.format(date)
+    statewide_transit_rollup.main(year3, new_path)
+    finaldf.to_excel(path +  '\\transits-{}'.format(date) + '{} SW Fin Summ.xlsx'.format(year3), index = False)

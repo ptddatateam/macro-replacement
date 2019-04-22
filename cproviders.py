@@ -264,7 +264,7 @@ class Datasheet():
 
 
 
-def main(year1, year2, year3):
+def main(year1, year2, year3, path):
     cp_list = ['Central Washington Airporter Gold', 'Central Washington Airporter Grape',
                'Coastal Community Action Program', 'Heckman Motors, Inc', 'Hopesource',
                'Klickitat County Senior Services',
@@ -288,8 +288,9 @@ def main(year1, year2, year3):
         cp_df = ds.finalizing_datasheet(cp_df)
         cp_df = cp_df.rename(columns = {'category': 'Operating Information'})
         cp_df = cp_df.replace('$0.0', '$0')
-        cp_df.to_excel(r'I:\Public_Transportation\Data_Team\PT_Summary\PythonFiles\testfolder\cp\{}.xlsx'.format(cp), index = False)
+        date = datetime.date.today().strftime("%m-%d")
+        if os.path.exists(path + '\\community-providers-{}'.format(date)) == False:
+            os.mkdir(path + '\\community-providers-{}'.format(date))
+        cp_df.to_excel(path + '\\community-providers-{}'.format(date) + '{}.xlsx'.format(cp), index = False)
 
 
-if __name__ == "__main__":
-    main(2015, 2016, 2017)

@@ -81,7 +81,7 @@ class statewide_rollup_sheets():
         return j
 
 
-    def sw_invest_table(self, year_of_report,  df):
+    def sw_invest_table(self, year_of_report, df, path):
         self.df = df
         self.year_of_report = year_of_report
         inv_df = df[['Yr', 'Operating_Investments', 'Local_Capital_Investment', 'State_Capital_Investment', 'Federal_Capital_Investment', 'Other_Investment']]
@@ -110,11 +110,10 @@ class statewide_rollup_sheets():
         inv_cols = inv_df.columns.tolist()
         inv_cols[1:7] = [int(i) for i in inv_cols[1:7]]
         inv_df.columns = inv_cols
-        inv_df.to_excel('I:\\Public_Transportation\\Data_Team\\PT_Summary\\PythonFiles\\testfolder\\{} SW Investments.xlsx'.format(
-                year_of_report), index=False)
+        inv_df.to_excel(path + '\\{} SW Investments.xlsx'.format(year_of_report), index=False)
 
 
-    def sw_rev_table(self, year_of_report):
+    def sw_rev_table(self, year_of_report, path):
         self.year_of_report = year_of_report
         year_list = self.generate_year_list(year_of_report, 5)
         # convert the list to a tuple
@@ -127,7 +126,7 @@ class statewide_rollup_sheets():
         df_exp = self.run_sql_script(inv_exp)
         df = pd.concat([df_td, df_exp, df_rev], axis=1)
         df = self.deduplicate(df)
-        self.sw_invest_table(year_of_report, df) # rolled this all into a separate function, when I come and clean it up, I may put revenues in their own function as well
+        self.sw_invest_table(year_of_report, df, path) # rolled this all into a separate function, when I come and clean it up, I may put revenues in their own function as well
         df['Local_Revenues'] = df['Farebox_Revenues'] + df['Local_Tax'] + df['Other_Operating_Revenue']
         rev_df = df[['Local_Revenues', 'State_Revenue', 'Federal_Revenue', 'Yr']]
         rev_df =rev_df.set_index('Yr')
@@ -155,10 +154,10 @@ class statewide_rollup_sheets():
         rev_cols = rev_df.columns.tolist()
         rev_cols[1:7] = [int(i) for i in rev_cols[1:7]]
         rev_df.columns = rev_cols
-        rev_df.to_excel('I:\\Public_Transportation\\Data_Team\\PT_Summary\\PythonFiles\\testfolder\\{} SW Revenues.xlsx'.format(year_of_report), index=False)
+        rev_df.to_excel(path +'\\{} SW Revenues.xlsx'.format(year_of_report), index=False)
 
 
-    def sw_fin_exps_stats(self, year_of_report, transit_list, transit_dic):
+    def sw_fin_exps_stats(self, year_of_report, transit_list, transit_dic, path):
         self.transit_dic = transit_dic
         self.transit_list = transit_list
         self.year_of_report = year_of_report
@@ -188,9 +187,9 @@ class statewide_rollup_sheets():
             df[col] = df[col].apply(lambda x: "${}".format(x))
             df[col] = df[col].map(self.fix_floating_zero_single)
         df = df.rename(columns = {'Agnc': 'Operating and Capital Expenses'})
-        df.to_excel('I:\\Public_Transportation\\Data_Team\\PT_Summary\\PythonFiles\\testfolder\\{} SW Fin Exps Stats.xlsx'.format(year_of_report), index=False)
+        df.to_excel(path + '\\{} SW Fin Exps Stats.xlsx'.format(year_of_report), index=False)
 
-    def sw_fin_rev_stats(self, year_of_report, transit_list, transit_dic):
+    def sw_fin_rev_stats(self, year_of_report, transit_list, transit_dic, path):
         self.year_of_report = year_of_report
         self.transit_list = transit_list
         self.transit_dic = transit_dic
@@ -216,13 +215,12 @@ class statewide_rollup_sheets():
             df[col] = df[col].apply(lambda x: "${}".format(x))
             df[col] = df[col].map(self.fix_floating_zero_single)
         df = df.rename(columns = {'Agnc': 'Revenues', 'Fare Revenues': 'Fare Revenues (all modes except vanpool)'})
-        df.to_excel('I:\\Public_Transportation\\Data_Team\\PT_Summary\\PythonFiles\\testfolder\\{} SW Fin Revs Stats.xlsx'.format(year_of_report), index=False)
+        df.to_excel(path + '\\{} SW Fin Revs Stats.xlsx'.format(year_of_report), index=False)
 
 
-    def ser_mode(self, year_of_report):
+    def ser_mode(self, year_of_report, path):
         self.year_of_report = year_of_report
         year_list = self.generate_year_list(year_of_report, 5)
-        print(year_list)
         year_list = tuple(year_list)
         script_list = [sqlscripts.ser_mode_rev, sqlscripts.ser_mode_rvh, sqlscripts.ser_mode_rvm, sqlscripts.ser_mode_psgr, sqlscripts.ser_mode_oex, sqlscripts.ser_mode_psgr_per_rvh, sqlscripts.ser_mode_psgr_per_rvm,
                        sqlscripts.ser_mode_oex_per_rvh, sqlscripts.ser_mode_oex_per_rvm, sqlscripts.ser_mode_oex_per_psgr, sqlscripts.ser_mode_rvh_per_employee, sqlscripts.ser_mode_farebox_recovery]
@@ -236,7 +234,6 @@ class statewide_rollup_sheets():
             scripted = self.populate_sql_script(year_list, script)
             df = self.run_sql_script(scripted)
             df = df.set_index('Yr')
-            print(df)
             df = df.sort_index(ascending=True)
             df = df.transpose()
             df.index = df.index.str.replace('_', ' ')
@@ -268,7 +265,7 @@ class statewide_rollup_sheets():
                 finaldf = finaldf.append(dict(zip(finaldf.columns.tolist(), emptylist)), ignore_index = True)
                 finaldf = pd.concat([finaldf, df], axis = 0)
 
-                finaldf.to_excel('I:\\Public_Transportation\\Data_Team\\PT_Summary\\PythonFiles\\testfolder\\{} Ser Mode Tables.xlsx'.format(year_of_report), index = False, header = False)
+                finaldf.to_excel(path + '\\{} Ser Mode Tables.xlsx'.format(year_of_report), index = False, header = False)
 
     def pretty_formatting(self, df):
         self.df = df
@@ -354,7 +351,7 @@ class statewide_rollup_sheets():
         return df
 
 
-    def sw_op_stats(self, year, transit_dic):
+    def sw_op_stats(self, year, transit_dic, path):
         self.year = year
         self.transit_dic = transit_dic
         modes = ['fixed', 'CB', 'TB', 'route', 'demand', 'van', 'com', 'light', 'SR']
@@ -399,17 +396,32 @@ class statewide_rollup_sheets():
                 emptylist = [''] * len(finaldf.columns)
                 finaldf = finaldf.append(dict(zip(finaldf.columns.tolist(), emptylist)), ignore_index=True)
                 finaldf = pd.concat([finaldf, df], axis=0)
-            finaldf.to_excel('I:\\Public_Transportation\\Data_Team\\PT_Summary\\PythonFiles\\testfolder\\{} SW Op Stats.xlsx'.format(year), index=False, header = False, sheet_name='Sheet1')
+            finaldf.to_excel(path + '\\{} SW Op Stats.xlsx'.format(year), index=False, header = False, sheet_name='Sheet1')
 
 
-def main(year_of_report):
+    def random_text(self, year_of_report):
+        random_text_list = []
+        previous_year = year_of_report-1
+        # local tax
+        local_tax_sql_script = "SELECT Yr, Sum(sales_tax+utility_tax+mvet) As Total_Local_Funds FROM ptsummary_transit.revenues join agencytype on revenues.Agnc = agencytype.Agency where Yr in ({}, {}) and agencytype.agencytype in ('urban', 'small urban', 'rural') Group By Yr".format(year_of_report, previous_year)
+        local_tax = self.run_sql_script(local_tax_sql_script)
+        local_tax['Total_Local_Funds'] = local_tax['Total_Local_Funds']*.0000000001
+        random_text_list.append('Local Funding')
+        local_taxes = 'Local tax revenues for {} totaled nearly ${} billion ($ {} billion in {}), accounting for XXX percent ' \
+                      'of all revenues (both operating and capital) for public transit systems'.format(local_tax['Yr'].loc[0], )
+
+
+
+def main(year_of_report, path):
     srs = statewide_rollup_sheets(year_of_report)
-    srs.sw_fin_exps_stats(year_of_report, srs.transit_list, srs.transit_dic)
-    srs.sw_fin_rev_stats(year_of_report, srs.transit_list, srs.transit_dic)
-    srs.ser_mode(year_of_report)
-    srs.sw_op_stats(year_of_report, srs.transit_dic)
-    srs.sw_rev_table(year_of_report)
+    #srs.sw_fin_exps_stats(year_of_report, srs.transit_list, srs.transit_dic, path)
+    #srs.sw_fin_rev_stats(year_of_report, srs.transit_list, srs.transit_dic, path)
+    #srs.ser_mode(year_of_report, path)
+    #srs.sw_op_stats(year_of_report, srs.transit_dic, path)
+    #srs.sw_rev_table(year_of_report, path)
+    srs.random_text(year_of_report)
+
 
 
 if __name__ == "__main__":
-    main(2017)
+    main(2017, 'buttigieg')

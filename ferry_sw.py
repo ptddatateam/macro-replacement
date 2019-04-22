@@ -5,17 +5,13 @@ import itertools
 import csv
 
 
-
-class Datasheet():
-    # this is the datasheet class; it contains all the methods for building a datasheet
-    # initialized a set of cp specific modes
-    def __init__(self, agency, year1, year2, year3):
-        self.agency = agency
+class statewide_ferry_Datasheet():
+    def __init__(self, year1, year2, year3):
         self.year1 = year1
         self.year2 = year2
         self.year3 = year3
-
-    def pull_from_db(self, agency, year1, year2, year3):
+    def pull_from_db(self, year1, year2, year3):
+        '''this function provides the names of columns in the dataframe'''
         self.year1 = year1
         self.year2 = year2
         self.year3 = year3
@@ -24,57 +20,57 @@ class Datasheet():
                                      password='shalom33',
                                      db='ptsummary_ferries',
                                      cursorclass=pymysql.cursors.DictCursor)
-
         with connection.cursor() as cursor:
             # Read a single record
-            sql = """SELECT * from ferrydata WHERE Yr in ('{}', '{}', '{}') And Agnc = '{}'""".format(year1, year2, year3, agency)
+            sql = """SELECT * from ferrydata WHERE Yr in ('{}', '{}', '{}')""".format(year1, year2, year3)
             cursor.execute(sql)
             result = cursor.fetchall()
 
         connection.close()
         return result
 
-    def clean_dataframe(self, results,cp):
-        self.results = results
-        self.cp = cp
-        df = pd.DataFrame.from_records(results)
-        df = df.drop(['Agnc', 'ferryindex'], axis = 1)
-        df = df.set_index('Yr')
-        df = df.transpose()
-        df = self.empty_row_dropper(df)
-        return df
-
     def empty_row_dropper(self, df):
         '''cuts out all of the empty rows from a dataframe'''
         self.df = df
         for index, row in df.iterrows():
             xrow = row.tolist()
+            xrow = xrow[1:]
             if sum(xrow) == 0.0:
                 df = df.drop(index=index, axis=0)
         return df
 
-    def percent_change_calculator(self, df, year2, year3):
-        self.df = df
+    def clean_results(self, results):
+        self.results = results
+        df = pd.DataFrame.from_records(results)
+        cols_to_drop = ['Agnc', 'ferryindex', 'st_other_ferry_sale', 'st_other_viaductmitigation', 'st_other_pugetsoundcleanairgrant']
+        df = df.drop(cols_to_drop, axis=1)
+        cols = df.columns.tolist()
+        return cols
+
+    def sql_sums(self, columns, year1, year2, year3):
+        self.columns = columns
+        self.year1 = year1
         self.year2 = year2
         self.year3 = year3
-        # built this to be pretty resilient, so it's able to handle weird shit like zero division errors, etc. this means its kind of slow, and I didn't use good pandas functionality
-        current_year = df[year3].tolist()
-        previous_year = df[year2].tolist()
-        zipped = zip(current_year, previous_year)
-        one_year_change = []
-        for curr, prev in zipped:
-            if (prev == 0 and curr != 0):
-                one_year_change.append(1.00)
-            elif (prev == 0 and curr == 0):
-                one_year_change.append(0.00)
-            else:
-                percent_change = (curr - prev) / prev
-                one_year_change.append(percent_change)
-        df['One Year Change (%)'] = one_year_change
-        df['One Year Change (%)'] = df['One Year Change (%)'].fillna(0.0)
-        df['One Year Change (%)'] = df['One Year Change (%)'] * 100
-        df = df.replace(np.inf, 100.00)
-        df['One Year Change (%)'] = df['One Year Change (%)'].apply(lambda x: round(x, 2))
+        df_list = []
+        for col in columns:
+            connection = pymysql.connect(host='UCC1038029',
+                                         user='nathans',
+                                         password='shalom33',
+                                         db='ptsummary_ferries',
+                                         cursorclass=pymysql.cursors.DictCursor)
+            with connection.cursor() as cursor:
+                # Read a single record
+                sql = """SELECT Yr, Sum({}) AS {} from ferrydata  WHERE Yr in ('{}', '{}', '{}') Group By Yr Order by Yr""".format(col, col, year1, year2, year3)
+                cursor.execute(sql)
+                result = cursor.fetchall()
+            connection.close()
+            res = pd.DataFrame.from_records(result)
+            res = res.set_index('Yr')
+            df_list.append(res)
+        df = pd.concat(df_list, axis = 1)
+        df = df.transpose()
+        df = self.empty_row_dropper(df)
         return df
 
     def revenue_sum_formulas(self, df):
@@ -87,7 +83,8 @@ class Datasheet():
         df = self.sum_formula(df, 'Total (Excludes Capital Revenues)', ['sales_tax', 'dgf_prop_tax','ut_tax', 'mvet', 'Farebox Revenues (Passenger, Auto & Driver Fares)',
             'fta_5307_op' ,'fta_5307_prv', 'fta_5311_op', 'fta_5316_op', 'fta_other_op', 'def_grnt', 'st_op_rmg',  'st_op_regmg',
             'st_op_sng', 'st_op_ste', 'st_op_other', 'st_gas_tax', 'st_oth_tax', 'Other Operating Sub-Total', 'deficitreim_grnt'])
-        df = self.sum_formula(df, 'Farebox Revenues', ['rev'])
+
+        df = self.sum_formula(df, 'Farebox Revenues', ['fare', 'rev'])
         df = self.sum_formula(df, 'Total Federal Capital',['fta_5307_grnt', 'fta_5309_grnt', 'fta_5310_grnt', 'fta_5311_grnt',
                                                            'fta_5337_grnt', 'fta_5316_grnt', 'Fstp_grnt', 'fed_other_grnt'])
         df = self.sum_formula(df, 'Total State Capital',
@@ -106,6 +103,7 @@ class Datasheet():
         df = self.sum_formula(df, 'Total Federal Investment', ['Total Federal Capital'])
         df = self.sum_formula(df, 'Total Capital', ['Total Local Investment', 'Total State Investment', 'Total Federal Investment'])
         return df
+
 
     def sum_formula(self, df, category_name, category_list):
         self.df = df
@@ -144,6 +142,7 @@ class Datasheet():
         df[year2] = df[year2].apply(lambda x: "{:,}".format(x))
         df[year3] = df[year3].apply(lambda x: "{:,}".format(x))
         df[[year1, year2, year3]] = df[[year1, year2, year3]].astype(str)
+        df = df.set_index('category')
         bad_indices = ['rvh', 'tvh', 'rvm', 'tvm', 'psgrtrips', 'vehtrips', 'dfc', 'bdfc', 'fte']
         df_indices = df.index.tolist()
         df_indices = [x for x in df_indices if x not in bad_indices]
@@ -209,6 +208,31 @@ class Datasheet():
         df = df.reset_index()
         return df
 
+
+    def percent_change_calculator(self, df, year2, year3):
+        self.df = df
+        self.year2 = year2
+        self.year3 = year3
+        # built this to be pretty resilient, so it's able to handle weird shit like zero division errors, etc. this means its kind of slow, and I didn't use good pandas functionality
+        current_year = df[year3].tolist()
+        previous_year = df[year2].tolist()
+        zipped = zip(current_year, previous_year)
+        one_year_change = []
+        for curr, prev in zipped:
+            if (prev == 0 and curr != 0):
+                one_year_change.append(1.00)
+            elif (prev == 0 and curr == 0):
+                one_year_change.append(0.00)
+            else:
+                percent_change = (curr - prev) / prev
+                one_year_change.append(percent_change)
+        df['One Year Change (%)'] = one_year_change
+        df['One Year Change (%)'] = df['One Year Change (%)'].fillna(0.0)
+        df['One Year Change (%)'] = df['One Year Change (%)'] * 100
+        df = df.replace(np.inf, 100.00)
+        df['One Year Change (%)'] = df['One Year Change (%)'].apply(lambda x: round(x, 2))
+        return df
+
     def finalizing_datasheet(self, df):
         '''this function does some final formatting and replacing'''
         self.df = df
@@ -232,69 +256,27 @@ class Datasheet():
 
 
 
-    def random_text_generator(self, df, year2, year3, ferry):
-        self.df = df
-        self.year2 = year2
-        self.year3 = year3
-        self.ferry = ferry
-
-        fancy_ferry_dictionary = {'Guemes': 'Guemes Island Ferry', 'Lummi': 'Lummi Island Ferry', 'Keller': 'Keller Ferry', 'King': 'King County Water Taxi', 'Kitsap': 'Kitsap Transit Foot Ferry',
-                                  'Pierce': 'Pierce County Ferry System', 'Wahkiakum': 'Wahkiakum Ferry', 'WSF': 'Washington State Ferries'}
-
-
-        ferry = fancy_ferry_dictionary[ferry]
-        psgr = df.loc['psgrtrips'][year3]
-        psgrtrip_change = df.loc['psgrtrips']['One Year Change (%)']
-        try:
-            vehtrips = df.loc['vehtrips'][year3]
-            vehtrip_change = df.loc['vehtrips']['One Year Change (%)']
-            if (psgrtrip_change > 0) and (vehtrip_change > 0):
-                random_text = "In {}, the {} provided service to {} passengers (up {} percent from {}) and {} vehicles (up {} percent from {}).".format(
-                    year3,
-                    ferry, psgr, psgrtrip_change, year2, vehtrips, vehtrip_change, year2)
-                return random_text
-            else:
-                random_text = "In {}, the {} provided service to {} passengers (down {} percent from {}) and {} vehicles (down {} percent from {}).".format(
-                    year3,
-                    ferry, psgr, psgrtrip_change, year2, vehtrips, vehtrip_change, year2)
-                return random_text
-        except KeyError:
-            if psgrtrip_change > 0:
-                random_text  ="In {}, the {} provided service to {} passengers (up {} percent from {}).".format(year3, ferry, psgr, psgrtrip_change, year2)
-                return random_text
-            else:
-                random_text = "In {}, the {} provided service to {} passengers (down {} percent from {}).".format(year3, ferry, psgr, psgrtrip_change, year2)
-                return random_text
-
-
-
-
 
 def main(year1, year2, year3, path):
-    ferry_list = ['Guemes', 'Keller', 'King', 'Kitsap', 'Pierce', 'Lummi', 'Wahkiakum', 'WSF']
-    random_text_list = []
-    for ferry in ferry_list:
-        print(ferry)
-        ds = Datasheet(ferry, year1, year2, year3)
-        df = ds.pull_from_db(ferry, year1, year2, year3)
-        df = ds.clean_dataframe(df, ferry)
-        df = ds.revenue_sum_formulas(df)
-        df = ds.percent_change_calculator(df, year2, year3)
-        df = df.set_index('category')
-        df = ds.pretty_formatting(df, year1, year2, year3)
-        random_text = ds.random_text_generator(df, year2, year3, ferry)
-        random_text_list.append(random_text)
-        df = df.reset_index()
-        df['One Year Change (%)'] = df['One Year Change (%)'].apply(lambda x: format(x, '.2f'))
-        df = ds.heading_inserter(df, year1, year2, year3)
-        df = ds.template_sorter(df)
-        df = ds.finalizing_datasheet(df)
-        df = df.rename(columns={'category': 'Operating Information'})
-        df = df.replace('$0.0', '$0')
-        df.to_excel(path + '\\'+ '{}.xlsx'.format(ferry), index = False)
-    randomtext = pd.DataFrame(random_text_list)
-    randomtext.to_excel(path + '\\'+ '{} Random Text.xlsx'.format(year3), index = False)
+    sfd = statewide_ferry_Datasheet(year1, year2, year3)
+    results = sfd.pull_from_db(year1, year2, year3)
+    columns_to_pull = sfd.clean_results(results)
+    df = sfd.sql_sums(columns_to_pull, year1, year2, year3)
+    df = sfd.revenue_sum_formulas(df)
+    df = sfd.percent_change_calculator(df, year2, year3)
+    df = sfd.pretty_formatting(df, year1, year2, year3)
+    df = df.reset_index()
+    df['One Year Change (%)'] = df['One Year Change (%)'].apply(lambda x: format(x, '.2f'))
+    df = sfd.heading_inserter(df, year1, year2, year3)
+    df = sfd.template_sorter(df)
+    df = sfd.finalizing_datasheet(df)
+    df = df.rename(columns={'category': 'Annual Operating Information'})
+    df = df.replace('$0.0', '$0')
+    df.to_excel(path + '\\' + '{} CP Compiled Years.xlsx'.format(year3), index=False, columns=None)
+
 
 
 if __name__ == "__main__":
     main(2015, 2016, 2017, r'I:\Public_Transportation\Data_Team\PT_Summary\PythonFiles\testfolder\ferry')
+
+
