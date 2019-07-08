@@ -477,6 +477,6 @@ def main(year1, year2, year3, path):
     finaldf = finaldf.rename(columns={'category': ''})
     finaldf = finaldf.replace('$0.0', '$0')
     new_path = path + '\\transits-{}'.format(date)
-    finaldf.to_excel(path + '\\transits-{}'.format(date) + '{} SW Fin Summ.xlsx'.format(year3), index=False)
+    finaldf.to_excel(path + '\\' + '{} SW Fin Summ.xlsx'.format(year3), index=False)
     statewide_transit_rollup.main(year3, new_path)
 

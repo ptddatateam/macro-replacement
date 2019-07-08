@@ -404,6 +404,8 @@ class statewide_rollup_sheets():
         random_text_list = []
         previous_year = year_of_report-1
         # local tax
+
+
         local_tax_sql_script = "SELECT Yr, Sum(sales_tax+utility_tax+mvet) As Total_Local_Funds FROM ptsummary_transit.revenues join agencytype on revenues.Agnc = agencytype.Agency where Yr in ({}, {}) and agencytype.agencytype in ('urban', 'small urban', 'rural') Group By Yr".format(year_of_report, previous_year)
         local_tax = self.run_sql_script(local_tax_sql_script)
         local_tax['Total_Local_Funds'] = local_tax['Total_Local_Funds']*.0000000001
@@ -414,15 +416,15 @@ class statewide_rollup_sheets():
 
 
 def main(year_of_report, path):
-    srs = statewide_rollup_sheets(year_of_report)
-    srs.sw_fin_exps_stats(year_of_report, srs.transit_list, srs.transit_dic, path)
-    srs.sw_fin_rev_stats(year_of_report, srs.transit_list, srs.transit_dic, path)
-    srs.ser_mode(year_of_report, path)
-    srs.sw_op_stats(year_of_report, srs.transit_dic, path)
-    srs.sw_rev_table(year_of_report, path)
-    #srs.random_text(year_of_report)
+    #srs = statewide_rollup_sheets(year_of_report)
+    #srs.sw_fin_exps_stats(year_of_report, srs.transit_list, srs.transit_dic, path)
+    #srs.sw_fin_rev_stats(year_of_report, srs.transit_list, srs.transit_dic, path)
+    #srs.ser_mode(year_of_report, path)
+    #srs.sw_op_stats(year_of_report, srs.transit_dic, path)
+    #srs.sw_rev_table(year_of_report, path)
+    srs.random_text(year_of_report, path)
 
 
 
 if __name__ == "__main__":
-    main(2017, path)
+    main(2017, r'C:\Users\SchumeN\Documents\ptstest\newtest\invest_test')
