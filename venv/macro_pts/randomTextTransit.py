@@ -104,7 +104,7 @@ def generate_text(category, yearOfReport, previousYear, measure):
         text = text + " " + rev_text
     return text
 
-# this sql script is messed up
+
 def rev_oex_calculator(yearOfReport):
     dfFares = run_sql_script(sqlscripts.fares.format(yearOfReport), 'ptsummary_transit')
     dfOperatingRevenues = run_sql_script(sqlscripts.operating_revenues.format(yearOfReport), 'ptsummary_transit')
@@ -163,12 +163,15 @@ def revenue_and_investment_script(yearOfReport):
     rev_in = run_sql_script(sqlscripts.sw_invest_td.format(yearOfReport), 'ptsummary_transit')
     rev_exp = run_sql_script(sqlscripts.sw_invest_exp.format(yearOfReport), 'ptsummary_transit')
     df = pd.concat([rev_df, rev_in, rev_exp], axis=1)
+    print(df.columns)
     df = deduplicate(df)
     df.Yr = df.Yr.apply(lambda x: int(x))
     df = df.set_index('Yr')
     df['Local_Revenues'] = df['Farebox_Revenues'] + df['Local_Tax'] + df['Other_Local_Revenue']
+    df['Total_Investments'] = df['Operating_Investments'] + df['Federal_Capital_Investment'] + df['State_Capital_Investment'] + df['Local_Capital_Investment'] + df['Other_Investment']
     rev_df = df[['Local_Revenues', 'State_Revenues', 'Federal_Revenues']]
-
+    inv_df = df[['Total_Investments', 'Operating_Investments', 'Federal_Capital_Investment', 'State_Capital_Investment', 'Local_Capital_Investment', 'Other_Investment']]
+    investmentRandomText = iterate_through_revenues(inv_df)
     rev_df['Total Revenues'] = list((rev_df.sum(axis = 1)))
     df['Total Revenues'] = rev_df['Total Revenues']  # need this for Local tax
 
@@ -190,12 +193,55 @@ def revenue_and_investment_script(yearOfReport):
     revenueRandomText.append(localTaxText)
     soundText = calculate_sound_tax_total(yearOfReport)
     revenueRandomText.append(soundText)
+    financialRandomText = revenueRandomText + investmentRandomText
+    return financialRandomText
 
 
-    return revenueRandomText
+def find_fare_percent_changes(yearOfReport):
+    transit_list = ['asotin', 'ben franklin', 'Central Transit', 'clallam', 'columbia', 'community', 'ctran',
+                         'CUBS', 'everett', 'garfield',
+                         'grant', 'grays', 'intercity', 'island', 'jefferson', 'king', 'kitsap', 'link', 'mason',
+                         'Okanogan County Transit Authority', 'pacific', 'pierce', 'pullman',
+                         'selah', 'skagit', 'sound', 'spokane', 'twin', 'union gap', 'valley', 'whatcom', 'yakima']
+    formal_report_list = ['Asotin County Transit', 'Ben Franklin Transit', 'Central Transit',
+                               'Clallam Transit System', 'Columbia County Public Transportation',
+                               'Community Transit', 'C-TRAN', 'RiverCities Transit', 'Everett Transit',
+                               'Garfield County Transportation Authority', 'Grant Transit Authority',
+                               'Grays Harbor Transportation Authority', 'Intercity Transit', 'Island Transit',
+                               'Jefferson Transit Authority', 'King County Metro',
+                               'Kitsap Transit', 'Link Transit', 'Mason County Transportation Authority', 'TranGo',
+                               'Pacific Transit System', 'Pierce Transit', 'Pullman Transit',
+                               'City of Selah Transportation Service', 'Skagit Transit', 'Sound Transit',
+                               'Spokane Transit Authority', 'Twin Transit', 'Union Gap Transit',
+                               'Valley Transit', 'Whatcom Transportation Authority', 'Yakima Transit']
+    transit_dic = dict(zip(transit_list, formal_report_list))
+    fareChangeDf = run_sql_script(sqlscripts.farebox_changes.format(yearOfReport), 'ptsummary_transit')
+    agencyType = ['urban', 'small urban', 'rural']
+    fareChangeDf['Agnc'] = fareChangeDf['Agnc'].apply(lambda x: transit_dic[x])
+    fareChangeDf['PercentDiff'] = fareChangeDf['PercentDiff'].apply(lambda x: round(x, 1))
+    count = 0
+    increaseFareList = []
+    decreaseFareList = []
+    for atype in agencyType:
+        sortedDf = fareChangeDf[fareChangeDf['agencytype'] == atype]
+        maxrow = sortedDf.loc[sortedDf['PercentDiff'] == sortedDf['PercentDiff'].max()]
+        minrow = sortedDf.loc[sortedDf['PercentDiff'] == sortedDf['PercentDiff'].min()]
+        if count == 0:
+            decreaseDf = pd.DataFrame(minrow)
+            increaseDf = pd.DataFrame(maxrow)
+            count +=1
+        else:
+            decreaseDf = pd.concat([decreaseDf, minrow], axis = 0)
+            increaseDf = pd.concat([increaseDf, maxrow], axis = 0)
+    increaseFareList.append("By classification, the following transit agencies showed the largest increases in farebox revenues, excluding vanpool farebox revenues")
+    for index, value in increaseDf.iterrows():
+        increaseFareList.append([value['agencytype'],value['Agnc'], "{} percent".format(value['PercentDiff'])])
+    decreaseFareList.append(
+        "By classification, the following transit agencies showed the largest decreases in farebox revenues, excluding vanpool farebox revenues")
+    for index, value in decreaseDf.iterrows():
+        decreaseFareList.append([value['agencytype'], value['Agnc'], "{} percent".format(value['PercentDiff'])])
 
-
-
+    return increaseFareList, decreaseFareList
 
 
 
@@ -206,7 +252,10 @@ def main(yearOfReport, path):
     for key, value in randomTextDictionary.items():
         text = generate_text(key, yearOfReport, previousYear, value)
         randomTextList.append(text)
-    revenueRandomText = revenue_and_investment_script((yearOfReport, previousYear))
+    increaseFareText, decreaseFareText = find_fare_percent_changes((previousYear, yearOfReport))
+    financialRandomText = revenue_and_investment_script((yearOfReport, previousYear))
+    print(financialRandomText)
+
 
 
 
