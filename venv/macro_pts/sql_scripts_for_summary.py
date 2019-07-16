@@ -87,8 +87,8 @@ oex_pt_com/rvm_pt_com as Operating_Expense_per_Revenue_Vehicle_Mile, oex_pt_com/
 '''
 
 
-sw_invest_rev = '''SELECT Yr, SUM(sales_tax+utility_tax+mvet+ other_ad+ other_int + other_gain + other_rev) AS Local_Tax, SUM(fta_5307_op +fta_5307_prv +fta_5311_op +fta_5316_op +fta_other_op) As Federal_Revenue,
-SUM(st_op_rmg+st_op_regmg+st_op_sng+st_op_stod+st_op_ste+st_op_other) AS State_Revenue, SUM(other_ad +other_int +other_gain +other_rev) AS Other_Operating_Revenue,
+sw_invest_rev = '''SELECT Yr, SUM(sales_tax+utility_tax+mvet) AS Local_Tax, SUM(other_ad+ other_int + other_gain + other_rev) AS Other_Local_Revenue, SUM(fta_5307_op +fta_5307_prv +fta_5311_op +fta_5316_op +fta_other_op+fta_5307_cg+fta_5309_cg+fta_5310_cg+fta_5311_cg+fta_5316_cg +Fstp_grnt_cg +fed_other_grnt_cg) As Federal_Revenues,
+SUM(st_op_rmg+st_op_regmg+st_op_sng+st_op_stod+st_op_ste+st_op_other+st_cg_rmg+st_cg_regmg +st_cg_sng +st_cg_ste+st_ct_van +st_cg_other) AS State_Revenues, SUM(other_ad +other_int +other_gain +other_rev) AS Other_Operating_Revenue,
  Sum(fta_5307_cg+fta_5309_cg+fta_5310_cg+fta_5311_cg+fta_5316_cg +Fstp_grnt_cg +fed_other_grnt_cg) AS Federal_Capital_Investment, Sum(st_cg_rmg+st_cg_regmg +st_cg_sng +st_cg_ste+st_ct_van +st_cg_other) As State_Capital_Investment
 FROM ptsummary_transit.revenues as t1 inner join ptsummary_transit.agencytype as t2 on t1.Agnc = t2.Agency where t2.agencytype in ('urban', 'rural', 'small urban') and t1.Yr in {} group by Yr;'''
 
@@ -98,3 +98,10 @@ sw_invest_td = '''Select Yr, SUM(oex_do_fixed+ oex_pt_fixed+oex_do_RB+oex_pt_RB+
 sw_invest_exp = '''Select Yr, Sum(local_cap) as Local_Capital_Investment, SUM(Otra_exp_num + interest + principal) as Other_Investment from ptsummary_transit.expenses as t1 inner join ptsummary_transit.agencytype as t2 on t1.Agnc = t2.Agency where t2.agencytype in ('urban', 'rural', 'small urban') and t1.Yr in {} Group by Yr;'''
 
 
+random_text_local_tax = '''SELECT Yr, sum(sales_tax + mvet+utility_tax) as Local_Tax FROM ptsummary_transit.revenues as t1 inner join ptsummary_transit.agencytype as t2 on t1.Agnc = t2.Agency where t2.agencytype in ('urban', 'rural', 'small urban') and t1.Yr in {} group by Yr'''
+
+random_text_local_tax_sound = '''SELECT Yr, sum(sales_tax + mvet+utility_tax) as Sound FROM ptsummary_transit.revenues where Agnc = 'sound' and Yr in {} Group By Yr;'''
+
+fares = '''SELECT Yr, SUM(rev_do_van +rev_do_fixed+rev_do_light+rev_do_route + rev_do_demand+rev_do_CB+rev_do_RB + rev_do_SR + rev_do_TB +rev_pt_fixed +rev_pt_com + rev_pt_light + rev_pt_route + rev_pt_demand+rev_pt_CB +rev_pt_DT +rev_pt_RB+ rev_pt_SR) as Fares from ptsummary_transit.transit_data as t1 inner join ptsummary_transit.agencytype as t2 on t1.Agnc = t2.Agency where t2.agencytype in ('urban', 'rural', 'small urban') and t1.Yr in {} Group By Yr;'''
+
+operating_revenues = '''Select Yr, SUM(sales_tax+utility_tax+mvet+fta_5307_op +fta_5307_prv +fta_5311_op +fta_5316_op +fta_other_op+st_op_rmg+st_op_regmg+st_op_sng+st_op_stod+st_op_ste+st_op_other+other_ad +other_int +other_gain +other_rev) as Operating_Revenues from ptsummary_transit.revenues as t1 inner join ptsummary_transit.agencytype as t2 on t1.Agnc = t2.Agency where t2.agencytype in ('urban', 'rural', 'small urban') and t1.Yr in {} Group By Yr;'''

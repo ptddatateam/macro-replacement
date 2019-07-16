@@ -127,7 +127,7 @@ class statewide_rollup_sheets():
         df = pd.concat([df_td, df_exp, df_rev], axis=1)
         df = self.deduplicate(df)
         self.sw_invest_table(year_of_report, df, path) # rolled this all into a separate function, when I come and clean it up, I may put revenues in their own function as well
-        df['Local_Revenues'] = df['Farebox_Revenues'] + df['Local_Tax'] + df['Other_Operating_Revenue']
+        df['Local_Revenues'] = df['Farebox_Revenues'] + df['Local_Tax']
         rev_df = df[['Local_Revenues', 'State_Revenue', 'Federal_Revenue', 'Yr']]
         rev_df =rev_df.set_index('Yr')
         rev_df = rev_df.transpose()
@@ -218,7 +218,7 @@ class statewide_rollup_sheets():
         df = df.rename(columns = {'Agnc': 'Revenues', 'Fare Revenues': 'Fare Revenues (all modes except vanpool)'})
         df.to_excel(path + '\\{} SW Fin Revs Stats.xlsx'.format(year_of_report), index=False)
 
-
+    # TODO need to add in fastest growing mode for each one of these
     def ser_mode(self, year_of_report, path):
         self.year_of_report = year_of_report
         year_list = self.generate_year_list(year_of_report, 5)
@@ -416,13 +416,13 @@ class statewide_rollup_sheets():
 
 
 def main(year_of_report, path):
-    #srs = statewide_rollup_sheets(year_of_report)
-    #srs.sw_fin_exps_stats(year_of_report, srs.transit_list, srs.transit_dic, path)
-    #srs.sw_fin_rev_stats(year_of_report, srs.transit_list, srs.transit_dic, path)
-    #srs.ser_mode(year_of_report, path)
-    #srs.sw_op_stats(year_of_report, srs.transit_dic, path)
-    #srs.sw_rev_table(year_of_report, path)
-    srs.random_text(year_of_report, path)
+    srs = statewide_rollup_sheets(year_of_report)
+    srs.sw_fin_exps_stats(year_of_report, srs.transit_list, srs.transit_dic, path)
+    srs.sw_fin_rev_stats(year_of_report, srs.transit_list, srs.transit_dic, path)
+    srs.ser_mode(year_of_report, path)
+    srs.sw_op_stats(year_of_report, srs.transit_dic, path)
+    srs.sw_rev_table(year_of_report, path)
+    #srs.random_text(year_of_report, path)
 
 
 
