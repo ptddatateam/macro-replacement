@@ -3,6 +3,7 @@ import pymysql.cursors
 import numpy as np
 import sql_scripts_for_summary as sqlscripts
 from xlsxwriter.utility import xl_rowcol_to_cell
+import randomTextTransit as randomTextTransit
 pd.options.display.float_format = '{:,}'.format
 
 
@@ -127,7 +128,7 @@ class statewide_rollup_sheets():
         df = pd.concat([df_td, df_exp, df_rev], axis=1)
         df = self.deduplicate(df)
         self.sw_invest_table(year_of_report, df, path) # rolled this all into a separate function, when I come and clean it up, I may put revenues in their own function as well
-        df['Local_Revenues'] = df['Farebox_Revenues'] + df['Local_Tax'] + df['Other_Operating_Revenue']
+        df['Local_Revenues'] = df['Farebox_Revenues'] + df['Local_Tax']
         rev_df = df[['Local_Revenues', 'State_Revenue', 'Federal_Revenue', 'Yr']]
         rev_df =rev_df.set_index('Yr')
         rev_df = rev_df.transpose()
@@ -218,7 +219,7 @@ class statewide_rollup_sheets():
         df = df.rename(columns = {'Agnc': 'Revenues', 'Fare Revenues': 'Fare Revenues (all modes except vanpool)'})
         df.to_excel(path + '\\{} SW Fin Revs Stats.xlsx'.format(year_of_report), index=False)
 
-
+    # TODO need to add in fastest growing mode for each one of these
     def ser_mode(self, year_of_report, path):
         self.year_of_report = year_of_report
         year_list = self.generate_year_list(year_of_report, 5)
@@ -400,18 +401,6 @@ class statewide_rollup_sheets():
             finaldf.to_excel(path + '\\{} SW Op Stats.xlsx'.format(year), index=False, header = False, sheet_name='Sheet1')
 
 
-    def random_text(self, year_of_report):
-        random_text_list = []
-        previous_year = year_of_report-1
-        # local tax
-        local_tax_sql_script = "SELECT Yr, Sum(sales_tax+utility_tax+mvet) As Total_Local_Funds FROM ptsummary_transit.revenues join agencytype on revenues.Agnc = agencytype.Agency where Yr in ({}, {}) and agencytype.agencytype in ('urban', 'small urban', 'rural') Group By Yr".format(year_of_report, previous_year)
-        local_tax = self.run_sql_script(local_tax_sql_script)
-        local_tax['Total_Local_Funds'] = local_tax['Total_Local_Funds']*.0000000001
-        random_text_list.append('Local Funding')
-        local_taxes = 'Local tax revenues for {} totaled nearly ${} billion ($ {} billion in {}), accounting for XXX percent ' \
-                      'of all revenues (both operating and capital) for public transit systems'.format(local_tax['Yr'].loc[0], )
-
-
 
 def main(year_of_report, path):
     srs = statewide_rollup_sheets(year_of_report)
@@ -420,9 +409,9 @@ def main(year_of_report, path):
     srs.ser_mode(year_of_report, path)
     srs.sw_op_stats(year_of_report, srs.transit_dic, path)
     srs.sw_rev_table(year_of_report, path)
-    #srs.random_text(year_of_report)
+    randomTextTransit.main(year_of_report, path)
 
 
 
 if __name__ == "__main__":
-    main(2017, path)
+    main(year_of_report, path)
