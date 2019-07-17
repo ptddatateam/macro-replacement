@@ -2,6 +2,7 @@ import pandas as pd
 import pymysql.cursors
 import numpy as np
 import humanize
+import csv
 import sql_scripts_for_summary as sqlscripts
 from xlsxwriter.utility import xl_rowcol_to_cell
 pd.options.display.float_format = '{:,}'.format
@@ -160,41 +161,51 @@ def calculate_sound_tax_total(yearOfReport):
 
 def revenue_and_investment_script(yearOfReport):
     rev_df = run_sql_script(sqlscripts.sw_invest_rev.format(yearOfReport), 'ptsummary_transit')
+    print(rev_df['Other_Operating_Revenue'])
     rev_in = run_sql_script(sqlscripts.sw_invest_td.format(yearOfReport), 'ptsummary_transit')
     rev_exp = run_sql_script(sqlscripts.sw_invest_exp.format(yearOfReport), 'ptsummary_transit')
     df = pd.concat([rev_df, rev_in, rev_exp], axis=1)
-    print(df.columns)
     df = deduplicate(df)
     df.Yr = df.Yr.apply(lambda x: int(x))
     df = df.set_index('Yr')
     df['Local_Revenues'] = df['Farebox_Revenues'] + df['Local_Tax'] + df['Other_Local_Revenue']
-    df['Total_Investments'] = df['Operating_Investments'] + df['Federal_Capital_Investment'] + df['State_Capital_Investment'] + df['Local_Capital_Investment'] + df['Other_Investment']
+    df['Total_Investments'] = df['Operating_Investments'] + df['Federal_Capital_Investment'] + df['State_Capital_Investment'] + df['Local_Capital_Investment'] + df['Other_Capital_Investment']
     rev_df = df[['Local_Revenues', 'State_Revenues', 'Federal_Revenues']]
-    inv_df = df[['Total_Investments', 'Operating_Investments', 'Federal_Capital_Investment', 'State_Capital_Investment', 'Local_Capital_Investment', 'Other_Investment']]
+    inv_df = df[['Total_Investments', 'Operating_Investments', 'Federal_Capital_Investment', 'State_Capital_Investment', 'Local_Capital_Investment', 'Other_Capital_Investment']]
+    inv_df.columns = [column.lower().capitalize() for column in inv_df.columns]
     investmentRandomText = iterate_through_revenues(inv_df)
     rev_df['Total Revenues'] = list((rev_df.sum(axis = 1)))
     df['Total Revenues'] = rev_df['Total Revenues']  # need this for Local tax
+    rev_df.columns = [column.lower().capitalize() for column in rev_df.columns]
+    df.columns = [column.lower().capitalize() for column in df.columns]
 
     # builds the revenue random text
     revenueRandomText = iterate_through_revenues(rev_df)
-    localTaxDf = pd.DataFrame(df['Local_Tax'])
+    localTaxDf = pd.DataFrame(df['Local_tax'])
     localTaxText = iterate_through_revenues(localTaxDf)
     # local tax revenues random text
-    local_percent = df['Local_Tax']/df['Total Revenues']
+    local_percent = df['Local_tax']/df['Total revenues']
     local_percent = local_percent.apply(lambda x: round(x*100, 2))
     localPercentDataFrame = pd.DataFrame(local_percent)
     localPercentDataFrame = localPercentDataFrame.reset_index()
+    print(localPercentDataFrame)
     if localPercentDataFrame.loc[0][1] > localPercentDataFrame.loc[1][1]:
-        localPercentText = 'These revenues accounted for {} percent of all revenues (both operating and capital) for the state\'s public transit agencies, up from {} percent in {}'.format(localPercentDataFrame.loc[0][1], localPercentDataFrame.loc[1][1], localPercentDataFrame.loc[1][0])
+        localPercentText = 'These revenues accounted for {} percent of all revenues (both operating and capital) for the state\'s public transit agencies, up from {} percent in {}'.format(localPercentDataFrame.loc[0][1], localPercentDataFrame.loc[1][1], int(localPercentDataFrame.loc[1]['Yr']))
     else:
         localPercentText = 'These revenues accounted for {} percent of all revenues (both operating and capital) for the state\'s public transit agencies, down from {} percent in {}'.format(
-            localPercentDataFrame.loc[0][1], localPercentDataFrame.loc[1][1], localPercentDataFrame.loc[1][0])
+            localPercentDataFrame.loc[0][1], localPercentDataFrame.loc[1][1], int(localPercentDataFrame.loc[1]['Yr']))
     localTaxText = localTaxText[0] + " " + localPercentText
     revenueRandomText.append(localTaxText)
     soundText = calculate_sound_tax_total(yearOfReport)
     revenueRandomText.append(soundText)
     financialRandomText = revenueRandomText + investmentRandomText
     return financialRandomText
+
+def to_csv(res, path):
+    with open(path, 'a', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file, delimiter = ',')
+        for i in res:
+            writer.writerow([i])
 
 
 def find_fare_percent_changes(yearOfReport):
@@ -235,11 +246,11 @@ def find_fare_percent_changes(yearOfReport):
             increaseDf = pd.concat([increaseDf, maxrow], axis = 0)
     increaseFareList.append("By classification, the following transit agencies showed the largest increases in farebox revenues, excluding vanpool farebox revenues")
     for index, value in increaseDf.iterrows():
-        increaseFareList.append([value['agencytype'],value['Agnc'], "{} percent".format(value['PercentDiff'])])
+        increaseFareList.append(value['agencytype'] + ": " + value['Agnc'] + ", {} percent".format(value['PercentDiff']))
     decreaseFareList.append(
         "By classification, the following transit agencies showed the largest decreases in farebox revenues, excluding vanpool farebox revenues")
     for index, value in decreaseDf.iterrows():
-        decreaseFareList.append([value['agencytype'], value['Agnc'], "{} percent".format(value['PercentDiff'])])
+        decreaseFareList.append(value['agencytype']+ ": " + value['Agnc']+ ", {} percent".format(value['PercentDiff']))
 
     return increaseFareList, decreaseFareList
 
@@ -254,7 +265,9 @@ def main(yearOfReport, path):
         randomTextList.append(text)
     increaseFareText, decreaseFareText = find_fare_percent_changes((previousYear, yearOfReport))
     financialRandomText = revenue_and_investment_script((yearOfReport, previousYear))
-    print(financialRandomText)
+    randomTextList = randomTextList + financialRandomText + increaseFareText + decreaseFareText
+    path = path + '\\' + 'randomtext.csv'
+    to_csv(randomTextList, path)
 
 
 
@@ -263,7 +276,7 @@ def main(yearOfReport, path):
 
 
 if __name__ == "__main__":
-    main(2017, r'C:\Users\SchumeN\Documents\ptstest\newtest\invest_test')
+    main(year, path)
 
 
 

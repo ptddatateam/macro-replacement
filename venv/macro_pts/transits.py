@@ -467,7 +467,6 @@ def main(year1, year2, year3, path):
     finaldf = ds.revenue_expense_formulas(finaldf)
     finaldf = ds.empty_row_dropper(finaldf)
     finaldf = ds.mode_aggregator(finaldf, ds.mode_list)
-    print(finaldf[finaldf['category']== 'Total State Capital'])
     finaldf = ds.percent_change_calculator(finaldf)
     finaldf['One Year Change (%)'] = finaldf['One Year Change (%)'].apply(lambda x: format(x, '.2f'))
     finaldf = ds.pretty_formatting_sw(finaldf, year1, year2, year3)
