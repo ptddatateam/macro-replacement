@@ -402,7 +402,7 @@ def fix_up_agencylist(agencylist):
     return agencylist
 
 
-def main(year1, year2, year3, path):
+def main(year1, year2, year3, path, prettyFormatting):
     print('Hurry up and get your coffee, because this program is fast')
     # pulls the dataframe out of the aether, and constructs an original dataset
     df = dataset_builder(year1, year2, year3)
@@ -451,7 +451,8 @@ def main(year1, year2, year3, path):
            continue
         # puts headings in to the output
        xdf['One Year Change (%)'] = xdf['One Year Change (%)'].apply(lambda x: format(x, '.2f'))
-       xdf = ds.pretty_formatting(xdf, year1, year2, year3)
+       if prettyFormatting == True:
+            xdf = ds.pretty_formatting(xdf, year1, year2, year3)
        xdf = ds.heading_inserter(xdf, year1, year2, year3)
         # sorts the final template based on a saved style sheet
        xdf = ds.final_template_sorter(xdf)

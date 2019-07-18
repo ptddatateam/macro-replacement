@@ -188,7 +188,6 @@ def revenue_and_investment_script(yearOfReport):
     local_percent = local_percent.apply(lambda x: round(x*100, 2))
     localPercentDataFrame = pd.DataFrame(local_percent)
     localPercentDataFrame = localPercentDataFrame.reset_index()
-    print(localPercentDataFrame)
     if localPercentDataFrame.loc[0][1] > localPercentDataFrame.loc[1][1]:
         localPercentText = 'These revenues accounted for {} percent of all revenues (both operating and capital) for the state\'s public transit agencies, up from {} percent in {}'.format(localPercentDataFrame.loc[0][1], localPercentDataFrame.loc[1][1], int(localPercentDataFrame.loc[1]['Yr']))
     else:
@@ -256,7 +255,7 @@ def find_fare_percent_changes(yearOfReport):
 
 
 
-def main(yearOfReport, path):
+def main(otherRandomText, yearOfReport, path):
     randomTextDictionary = {'revenue vehicle hours': 'rvh', 'revenue vehicle miles': 'rvm', 'passenger trips': 'psgr', 'farebox revenues': 'rev', 'operating expenses': 'oex', 'farebox revenues':'rev'}
     previousYear = yearOfReport -1
     randomTextList = []
@@ -265,7 +264,7 @@ def main(yearOfReport, path):
         randomTextList.append(text)
     increaseFareText, decreaseFareText = find_fare_percent_changes((previousYear, yearOfReport))
     financialRandomText = revenue_and_investment_script((yearOfReport, previousYear))
-    randomTextList = randomTextList + financialRandomText + increaseFareText + decreaseFareText
+    randomTextList = otherRandomText + randomTextList + financialRandomText + increaseFareText + decreaseFareText
     path = path + '\\' + 'randomtext.csv'
     to_csv(randomTextList, path)
 

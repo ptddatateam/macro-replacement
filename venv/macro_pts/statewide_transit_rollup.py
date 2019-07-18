@@ -85,7 +85,7 @@ class statewide_rollup_sheets():
     def sw_invest_table(self, year_of_report, df, path):
         self.df = df
         self.year_of_report = year_of_report
-        inv_df = df[['Yr', 'Operating_Investments', 'Local_Capital_Investment', 'State_Capital_Investment', 'Federal_Capital_Investment', 'Other_Investment']]
+        inv_df = df[['Yr', 'Operating_Investments', 'Local_Capital_Investment', 'State_Capital_Investment', 'Federal_Capital_Investment', 'Other_Capital_Investment']]
         inv_df = inv_df.set_index('Yr')
         inv_df = inv_df.transpose()
         sorted_columns = inv_df.columns.sort_values(ascending=True)
@@ -129,7 +129,7 @@ class statewide_rollup_sheets():
         df = self.deduplicate(df)
         self.sw_invest_table(year_of_report, df, path) # rolled this all into a separate function, when I come and clean it up, I may put revenues in their own function as well
         df['Local_Revenues'] = df['Farebox_Revenues'] + df['Local_Tax']
-        rev_df = df[['Local_Revenues', 'State_Revenue', 'Federal_Revenue', 'Yr']]
+        rev_df = df[['Local_Revenues', 'State_Revenues', 'Federal_Revenues', 'Yr']]
         rev_df =rev_df.set_index('Yr')
         rev_df = rev_df.transpose()
         sorted_columns = rev_df.columns.sort_values(ascending=True)
@@ -220,19 +220,23 @@ class statewide_rollup_sheets():
         df.to_excel(path + '\\{} SW Fin Revs Stats.xlsx'.format(year_of_report), index=False)
 
     # TODO need to add in fastest growing mode for each one of these
+
+
     def ser_mode(self, year_of_report, path):
+        randomTextList = []
         self.year_of_report = year_of_report
         year_list = self.generate_year_list(year_of_report, 5)
         year_list = tuple(year_list)
-        script_list = [sqlscripts.ser_mode_rev, sqlscripts.ser_mode_rvh, sqlscripts.ser_mode_rvm, sqlscripts.ser_mode_psgr, sqlscripts.ser_mode_oex, sqlscripts.ser_mode_psgr_per_rvh, sqlscripts.ser_mode_psgr_per_rvm,
+        script_list = [sqlscripts.ser_mode_rvh, sqlscripts.ser_mode_rev, sqlscripts.ser_mode_rvm, sqlscripts.ser_mode_psgr, sqlscripts.ser_mode_oex, sqlscripts.ser_mode_psgr_per_rvh, sqlscripts.ser_mode_psgr_per_rvm,
                        sqlscripts.ser_mode_oex_per_rvh, sqlscripts.ser_mode_oex_per_rvm, sqlscripts.ser_mode_oex_per_psgr, sqlscripts.ser_mode_rvh_per_employee, sqlscripts.ser_mode_farebox_recovery]
-        mode_dict = {'ser_mode_rev':'Farebox Revenues by Service Mode', 'ser_mode_rvh': 'Revenue Vehicle Hours by Service Mode', 'ser_mode_rvm': 'Revenue Vehicle Miles by Service Mode', 'ser_mode_psgr':'Passenger Trips by Service Mode',
+        mode_dict = {'ser_mode_rvh': 'Revenue Vehicle Hours by Service Mode', 'ser_mode_rev':'Farebox Revenues by Service Mode', 'ser_mode_rvm': 'Revenue Vehicle Miles by Service Mode', 'ser_mode_psgr':'Passenger Trips by Service Mode',
                      'ser_mode_oex':'Operating Expenses by Passenger Mode', 'ser_mode_psgr_per_rvh': 'Passenger Trips per Revenue Vehicle Hour', 'ser_mode_psgr_per_rvm':'Passenger Trips per Revenue Vehicle Mile',
                      'ser_mode_oex_per_rvh':'Operating Costs per Revenue Vehicle Hour', 'ser_mode_oex_per_rvm':'Operating Costs per Revenue Vehicle Mile', 'ser_mode_oex_per_psgr':'Operating Costs per Passenger Trip',
                      'ser_mode_rvh_per_employee':'Revenue Vehicle Hours per Employee','ser_mode_farebox_recovery':'Farebox Recovery/Vanpool Revenue Recovery'}
         zipped = zip(script_list, mode_dict.keys())
         count = 0
         for script, title in zipped:
+            print(title)
             scripted = self.populate_sql_script(year_list, script)
             df = self.run_sql_script(scripted)
             df = df.set_index('Yr')
@@ -253,6 +257,15 @@ class statewide_rollup_sheets():
             prev_year = year_of_report - 1
             df['One Year Percent Change (%)'] = (df[year_of_report] - df[prev_year]) / df[prev_year]
             df['One Year Percent Change (%)'] = df['One Year Percent Change (%)'] * 100
+            #TODO need a dictionary that subs in the right metric here
+            if title in ['Revenue Vehicle Hours by Service Mode', 'Revenue Vehicle Miles by Service Mode', 'Passenger Trips by Service Mode', 'Farebox Revenues by Service Mode']:
+                metric_dic = {'Revenue Vehicle Hours by Service Mode':'revenue vehicle hours', 'Revenue Vehicle Miles by Service Mode': 'revenue vehicle miles', 'Passenger Trips by Service Mode': 'passenger trips', 'Farebox Revenues by Service Mode': 'farebox revenues'}
+                metric = metric_dic[title]
+                maxrow = df.loc[df['One Year Percent Change (%)'] == df['One Year Percent Change (%)'].max()]
+                change = round(maxrow['One Year Percent Change (%)'], 1)
+                change = change.values
+                text = 'The most significant change in {} occurred in {}, which showed an {} percent increase from {}'.format(metric, maxrow[title].values[0], change[0], prev_year)
+                randomTextList.append(text)
             df.loc[-1] = df.columns.tolist()  # adding a row
             df.index = df.index + 1  # shifting index
             df = df.sort_index()
@@ -266,8 +279,8 @@ class statewide_rollup_sheets():
                 emptylist = ['']*len(finaldf.columns)
                 finaldf = finaldf.append(dict(zip(finaldf.columns.tolist(), emptylist)), ignore_index = True)
                 finaldf = pd.concat([finaldf, df], axis = 0)
-
                 finaldf.to_excel(path + '\\{} Ser Mode Tables.xlsx'.format(year_of_report), index = False, header = False)
+        return randomTextList
 
     def pretty_formatting(self, df):
         self.df = df
@@ -406,10 +419,10 @@ def main(year_of_report, path):
     srs = statewide_rollup_sheets(year_of_report)
     srs.sw_fin_exps_stats(year_of_report, srs.transit_list, srs.transit_dic, path)
     srs.sw_fin_rev_stats(year_of_report, srs.transit_list, srs.transit_dic, path)
-    srs.ser_mode(year_of_report, path)
+    randomTextList = srs.ser_mode(year_of_report, path)
     srs.sw_op_stats(year_of_report, srs.transit_dic, path)
     srs.sw_rev_table(year_of_report, path)
-    randomTextTransit.main(year_of_report, path)
+    randomTextTransit.main(randomTextList, year_of_report, path)
 
 
 
