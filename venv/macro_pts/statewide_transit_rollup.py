@@ -4,6 +4,7 @@ import numpy as np
 import sql_scripts_for_summary as sqlscripts
 from xlsxwriter.utility import xl_rowcol_to_cell
 import randomTextTransit as randomTextTransit
+import matplotlib.pyplot as plt
 pd.options.display.float_format = '{:,}'.format
 
 
@@ -144,6 +145,8 @@ class statewide_rollup_sheets():
         percent_of_total = [round(i*100, 2) for i in percent_of_total]
         percent_of_total.append(np.nan)
         rev_df['% of Total'] = percent_of_total
+        print(rev_df)
+        print(rev_df['% of Total'].loc[:2])
         rev_df = rev_df.fillna('')
         rev_df['Total Revenues'] = rev_df['Total Revenues'].str.replace('_', ' ')
         cols = rev_df.columns.tolist()
@@ -236,7 +239,6 @@ class statewide_rollup_sheets():
         zipped = zip(script_list, mode_dict.keys())
         count = 0
         for script, title in zipped:
-            print(title)
             scripted = self.populate_sql_script(year_list, script)
             df = self.run_sql_script(scripted)
             df = df.set_index('Yr')
