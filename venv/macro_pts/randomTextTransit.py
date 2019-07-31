@@ -34,8 +34,6 @@ def clean_metrics(measure):
 
 
 def modify_percentage(percentage):
-    if percentage < 0:
-        percentage = abs(percentage)
     percentage = str(percentage)
     percentage = percentage.replace('.0', '')
     return percentage
@@ -60,7 +58,7 @@ def prepare_df(yearOfReport, previousYear, measure):
     return df
 
 def text_formation_from_df_financial(category, df):
-    percentage = (df.loc[0][1] - df.loc[1][1]) / df.loc[1][1]
+    percentage = (df.loc[1][1] - df.loc[0][1]) / df.loc[0][1]
     percentage = round(percentage * 100, 1)
     df.iloc[:,1] = df.iloc[:,1].apply(lambda x: humanize.intword(x))
     df.iloc[:, 1] = df.iloc[:, 1].apply(lambda x: str(x).replace('.0', ''))
@@ -77,22 +75,25 @@ def generate_text(category, yearOfReport, previousYear, measure):
     df = prepare_df(yearOfReport, previousYear, measure)
     if measure in ['rvh', 'psgr']:
         df = find_fixed_percentage((yearOfReport,previousYear), 'ptsummary_transit', df, measure)
-    percentage = (df.loc[0][1] - df.loc[1][1]) / df.loc[1][1]
+    percentage = (df.loc[1][1] - df.loc[0][1]) / df.loc[0][1]
     percentage = round(percentage * 100, 1)
+    print(percentage)
     df.iloc[:,1] = df.iloc[:,1].apply(lambda x: humanize.intword(x))
     df.iloc[:, 1] = df.iloc[:, 1].apply(lambda x: str(x).replace('.0', ''))
+    print(percentage)
     if percentage > 0:
         percentage = modify_percentage(percentage)
         if measure in ['rev', 'oex']:
-            text = 'Total {} increased {} percent, from around ${} in {} to about ${} in {}.'.format(category, percentage, df.loc[1][1], int(df.loc[1][0]), df.loc[0][1], int(df.loc[0][0]))
+            text = 'Total {} increased {} percent, from around ${} in {} to about ${} in {}.'.format(category, percentage, df.loc[0][1], int(df.loc[0][0]), df.loc[1][1], int(df.loc[1][0]))
         else:
-            text = 'Total {} increased {} percent, from around {} in {} to about {} in {}.'.format(category, percentage, df.loc[1][1], int(df.loc[1][0]), df.loc[0][1], int(df.loc[0][0]))
-    elif percentage < 0:
+            text = 'Total {} increased {} percent, from around {} in {} to about {} in {}.'.format(category, percentage, df.loc[0][1], int(df.loc[0][0]), df.loc[1][1], int(df.loc[1][0]))
+        print(text)
+    else:
         percentage = modify_percentage(percentage)
-        if measure in ['rev', 'oex']:
-            text = 'Total {} increased {} percent, from around ${} in {} to about ${} in {}.'.format(category, percentage, df.loc[1][1], int(df.loc[1][0]), df.loc[0][1], int(df.loc[0][0]))
+        if 'rev' in measure or 'oex' in measure:
+            text = 'Total {} increased {} percent, from around ${} in {} to about ${} in {}.'.format(category, percentage, df.loc[0][1], int(df.loc[0][0]), df.loc[1][1], int(df.loc[1][0]))
         else:
-            text = 'Total {} increased {} percent, from around {} in {} to about {} in {}.'.format(category, percentage, df.loc[1][1], int(df.loc[1][0]), df.loc[0][1], int(df.loc[0][0]))
+            text = 'Total {} decreased {} percent, from around {} in {} to about {} in {}.'.format(category, percentage, df.loc[0][1], int(df.loc[0][0]), df.loc[1][1], int(df.loc[1][0]))
     # heres a separate bit of logic to produce the revenue vehicle hour text
     if measure in ['rvh', 'psgr']:
         if df.loc[0][3] > df.loc[1][3]:
@@ -101,7 +102,9 @@ def generate_text(category, yearOfReport, previousYear, measure):
             rvh_text = 'Fixed route services accounted for {} percent of total {} in {}, down from {} percent in {}.'.format(df.loc[0][3], category, int(df.loc[0][0]), df.loc[1][3], int(df.loc[1][0]))
         text = text + " "+ rvh_text
     if measure in ['rev']:
+        print(percentage)
         rev_text = rev_oex_calculator((yearOfReport,previousYear))
+        print(rev_text)
         text = text + " " + rev_text
     return text
 
@@ -116,13 +119,14 @@ def rev_oex_calculator(yearOfReport):
     df['Percent'] = df['Percent'].apply(lambda x:round(x*100, 2))
     df = df[['Yr', 'Percent']]
     df['Yr'] = df['Yr'].apply(lambda x: int(x))
-    if df.loc[0][1] > df.loc[1][1]:
-        text = 'These revenues accounted for {} percent of the operating revenues for the state\'s transit agencies, up from {} in {}'.format(df.loc[0][1],
-                                                                                                                                              df.loc[1][0], df.loc[1][1])
+    print(df)
+    if df.loc[1][1] > df.loc[0][1]:
+        text = 'These revenues accounted for {} percent of the operating revenues for the state\'s transit agencies, up from {} in {}'.format(df.loc[1][1],
+                                                                                                                                              df.loc[0][1], int(df.loc[0][0]))
     else:
         text = 'These revenues accounted for {} percent of the operating revenues for the state\'s transit agencies, down from {} in {}'.format(
-            df.loc[0][1],
-            df.loc[1][0], df.loc[1][1])
+            df.loc[1][1],
+            df.loc[0][1], int(df.loc[0][0]))
     return text
 
 
@@ -152,10 +156,10 @@ def calculate_sound_tax_total(yearOfReport):
      localPercentDataFrame = pd.DataFrame(local_percent)
      lPerDf = localPercentDataFrame.reset_index()
      if lPerDf.loc[0][1] > lPerDf.loc[1][1]:
-        soundText = 'Sound Transit represented {} percent of the total local tax revenues collected for public transit in {}, up from {} in {}'.format(lPerDf.loc[0][1], lPerDf.loc[0][0], lPerDf.loc[1][1], lPerDf.loc[1][0])
+        soundText = 'Sound Transit represented {} percent of the total local tax revenues collected for public transit in {}, up from {} in {}'.format(lPerDf.loc[0][1], int(lPerDf.loc[0][0]), lPerDf.loc[1][1], int(lPerDf.loc[1][0]))
      else:
          soundText = 'Sound Transit represented {} percent of the total local tax revenues collected for public transit in {}, down from {} in {}'.format(
-             lPerDf.loc[0][1], lPerDf.loc[0][0], lPerDf.loc[1][1], lPerDf.loc[1][0])
+             lPerDf.loc[0][1], int(df.loc[0][0]), lPerDf.loc[1][1], int(df.loc[1][0]))
      return soundText
 
 
@@ -188,6 +192,7 @@ def revenue_and_investment_script(yearOfReport):
     local_percent = local_percent.apply(lambda x: round(x*100, 2))
     localPercentDataFrame = pd.DataFrame(local_percent)
     localPercentDataFrame = localPercentDataFrame.reset_index()
+    print(localPercentDataFrame)
     if localPercentDataFrame.loc[0][1] > localPercentDataFrame.loc[1][1]:
         localPercentText = 'These revenues accounted for {} percent of all revenues (both operating and capital) for the state\'s public transit agencies, up from {} percent in {}'.format(localPercentDataFrame.loc[0][1], localPercentDataFrame.loc[1][1], int(localPercentDataFrame.loc[1]['Yr']))
     else:
@@ -275,7 +280,7 @@ def main(otherRandomText, yearOfReport, path):
 
 
 if __name__ == "__main__":
-    main(year, path)
+    main(['some stuff'],2018, r'C:\Users\SchumeN\Documents\TPS\test')
 
 
 

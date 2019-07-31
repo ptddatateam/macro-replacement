@@ -38,4 +38,4 @@ def main(year_of_report, output_path, prettyFormatting):
 
 
 if __name__ == "__main__":
-    main(2017, r'C:\Users\SchumeN\Documents\ptstest\newtest', True)
+    main(2018, r'I:\Public_Transportation\Data_Team\PT_Summary\2018\PTRS_Data', True)

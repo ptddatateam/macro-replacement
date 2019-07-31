@@ -39,6 +39,7 @@ class Datasheet():
         xdf.columns = xdf.loc['Yr']
         cols = xdf.columns.sort_values(ascending=True)
         xdf = xdf[cols]
+        print(xdf)
         # rearranges the columns so that they are in the right order
         xdf = xdf.fillna(0)
         xdf = xdf.drop('Yr', axis = 0)
@@ -270,6 +271,7 @@ class Datasheet():
         self.j = j
         if len(j) > 4:
             j = j.replace('.00', '')
+            j = j.replace('.0', '')
         return j
 
 
@@ -439,7 +441,6 @@ def main(year1, year2, year3, path, prettyFormatting):
        # this part of the loop starts to build the Statewide Operations Financial Summary, takes the generated individual data and uses it to build the op finn sum, which is a larger version of individual agency sheets
         # builds out the datasheet for individual agencies by creating a list of composite financial categories
        xdf = ds.revenue_expense_formulas(xdf)
-
         # axes any modes that aren't represented by a particular transit agency, accepts the variable mode list as a guide to finding these modes
        xdf = ds.mode_cutter(xdf, ds.mode_list)
         # calculates the percent change for year over year
@@ -477,6 +478,6 @@ def main(year1, year2, year3, path, prettyFormatting):
     finaldf = finaldf.rename(columns={'category': ''})
     finaldf = finaldf.replace('$0.0', '$0')
     new_path = path + '\\transits-{}'.format(date)
-    finaldf.to_excel(path + '\\' + '{} SW Fin Summ.xlsx'.format(year3), index=False)
+    finaldf.to_excel(new_path + '\\' + '{} SW Fin Summ.xlsx'.format(year3), index=False)
     statewide_transit_rollup.main(year3, new_path)
 

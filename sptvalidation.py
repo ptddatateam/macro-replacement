@@ -1,11 +1,53 @@
 import pandas as pd
+import pymysql.cursors
 import numpy as np
 import os
 from collections import defaultdict
 
-def read_files(path, dictionaryreaderpath):
-    df2014 = pd.read_excel(path + '\\' + '2017data.xlsx')
-    df2013 = pd.read_excel(path + '\\' + '2016data.xlsx')
+
+
+def pull_from_db(table_name, year2, year3):
+    connection = pymysql.connect(host='UCC1038029',
+                             user='nathans',
+                             password='shalom33',
+                             db='ptsummary_transit',
+                             cursorclass=pymysql.cursors.DictCursor)
+
+    count = 0
+    with connection.cursor() as cursor:
+        # Read a single record
+        sql = """SELECT * from {} WHERE Yr in ('{}', '{}')""".format(table_name, year2, year3)
+        cursor.execute(sql)
+        result = cursor.fetchall()
+
+        for i in result:
+            if count == 0:
+                df = pd.DataFrame.from_dict(i, orient= 'index')
+                count +=1
+            else:
+                newdf = pd.DataFrame.from_dict(i, orient = 'index')
+                df = pd.concat([df, newdf], axis = 1)
+    connection.close()
+    df = df.transpose()
+    df = df.fillna(0)
+    textColumns = []
+    for i in df.columns.tolist():
+        if 'spec' in i:
+            textColumns.append(i)
+    df = df.drop(textColumns, axis=1)
+    irrelevantList = ['revenueindex', 'rpKey', 'expense_key', 'Comments', 'AgencyYr']
+    for i in irrelevantList:
+        if i in df.columns:
+            df = df.drop(i, axis=1)
+    df.rename(columns={'Agnc':'Agency'}, inplace=True)
+    return df
+
+
+
+def read_files(table_name, dictionaryreaderpath, currentYear, previousYear):
+    df = pull_from_db(table_name, currentYear, previousYear)
+    df2014 = df[df.Yr == currentYear]
+    df2013 = df[df.Yr == previousYear]
     dic =  pd.read_excel(dictionaryreaderpath + '\\' + 'dictionarygenerator.xlsx')
     abbreviationdic = dict(zip(dic.Abbreviation, dic.Name))
     required = dic.Abbreviation.tolist()
@@ -19,12 +61,12 @@ def validation(dflist, abbreviationdic):
     dflist = dflist[:2]
     df1 = dflist[0]
     df2 = dflist[1]
-    agencies = df1.Agency.tolist()
+    agencies = df1.Agency.unique().tolist()
     dicValidationErrors = {}
     result = {}
     for agency in agencies:
         # skip some things that are specifically unique to this dataset--will add to them as we get more tribes
-        skiplist = ['Cowlitz Indian Tribe', 'Makah Nation', 'Quinault Indian Nation','Stillaguamish Tribe of Indians', 'Testing agency']
+        skiplist = ['Cowlitz Indian Tribe', 'Makah Nation', 'Quinault Indian Nation','Stillaguamish Tribe of Indians', 'Kalispel Tribe of Indians', 'Lummi Nation', 'Testing agency', 'Tulalip Tribes']
         if agency in skiplist:
             continue
         joineddf = agency_selector(agency, df1, df2)
@@ -258,8 +300,6 @@ def missing_values(agency, df1, df2, abbreviationdic):
     # drops the agency section
     joineddf = pd.concat([xdf1, xdf2], axis=0).reset_index().drop('index', axis=1)
     # joins the two dataframes as rows (column names are the same. It's a long dataframe with columns and two values underneath it
-    joineddf = joineddf.drop('rpKey', axis = 1)
-    # drops the rpKey section, as it makes some of the work I'm trying to do here difficult
     joineddf = joineddf.astype(str)
     # turns all columns into strings
     missingvaluesdic = {}
@@ -292,16 +332,20 @@ def missing_values(agency, df1, df2, abbreviationdic):
         pass
     return missingvaluesdic
 
-def Main(inputpath, dictionaryreaderpath, outputpath):
+def Main(currentYear, previousYear,dictionaryreaderpath, outputpath):
+    tableList = ['transit_data', 'revenues', 'expenses']
+    for tableName in tableList:
+
     # takes the path, reads everything in the relevant directory
-   dflist, abbreviationdic = read_files(inputpath, dictionaryreaderpath)
+        dflist, abbreviationdic = read_files(tableName, dictionaryreaderpath, currentYear, previousYear)
     # generates a list of dataframes in this directory, and a set of abbreviations
-   df = validation(dflist, abbreviationdic)
+        df = validation(dflist, abbreviationdic)
     # it's a validation function
-   df.to_csv(outputpath)
+        newpath = outputpath.format(tableName)
+        df.to_excel(newpath)
     # outputs thit to a csv
 if __name__ == "__main__":
-    Main(r'I:\Public_Transportation\Data_Team\PT_Summary\2017\PTRS_Data\07-26-18_Pull\Validation', r'C:\Users\SchumeN\Documents\TPS\validationfolder',  r'I:\Public_Transportation\Data_Team\PT_Summary\2017\PTRS_Data\07-26-18_Pull\Validation\validationtestsrevised.csv')
+    Main(2018, 2017, r'C:\Users\SchumeN\Documents\TPS\validationfolder',  r'I:\Public_Transportation\Data_Team\PT_Summary\2018\PTRS_Data\Validation\validationtestsrevised_{}.xlsx')
 
     # user guide
     # make sure the paths line up

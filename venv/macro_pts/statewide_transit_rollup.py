@@ -145,8 +145,8 @@ class statewide_rollup_sheets():
         percent_of_total = [round(i*100, 2) for i in percent_of_total]
         percent_of_total.append(np.nan)
         rev_df['% of Total'] = percent_of_total
-        print(rev_df)
-        print(rev_df['% of Total'].loc[:2])
+
+        data = rev_df['% of Total'].loc[:2].tolist()
         rev_df = rev_df.fillna('')
         rev_df['Total Revenues'] = rev_df['Total Revenues'].str.replace('_', ' ')
         cols = rev_df.columns.tolist()
@@ -155,6 +155,18 @@ class statewide_rollup_sheets():
             rev_df[col] = rev_df[col].apply(lambda x: "{:,}".format(x))
             rev_df[col] = rev_df[col].apply(lambda x: "${}".format(x))
             rev_df[col] = rev_df[col].map(self.fix_floating_zero_single)
+        labelList = rev_df['Total Revenues'].loc[:2].tolist()
+        totalList = rev_df.iloc[:, -2].loc[:2]
+        totalRevenue = rev_df.iloc[:,-2].loc[3]
+        zipped = zip(labelList, totalList)
+        finalLabelList = []
+        for i, j, in zipped:
+            label = i + "\n" + j
+            finalLabelList.append(label)
+        plt.pie(data, labels = finalLabelList, autopct='%1.1f%%')
+        title = 'Total Revenues by Source, {}'.format(year_of_report) + '\n' + 'Total = {}'.format(totalRevenue)
+        plt.title(title)
+        plt.savefig(path+ '\\Total Revenues by Source Chart.png')
         rev_cols = rev_df.columns.tolist()
         rev_cols[1:7] = [int(i) for i in rev_cols[1:7]]
         rev_df.columns = rev_cols
@@ -171,6 +183,7 @@ class statewide_rollup_sheets():
         df_rev = self.run_sql_script(fexp_rev)
         fexp_exp = self.populate_sql_script(year_of_report, sqlscripts.sw_fin_exp_expenses)
         df_exp = self.run_sql_script(fexp_exp)
+        df_exp = df_exp.drop('Agnc', axis = 1)
         df = pd.concat([df_td, df_exp, df_rev], axis = 1)
         df = self.deduplicate(df)
         df['Capital_Expenses'] = df['Capital_Expenses'] + df['local_cap']
