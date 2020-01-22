@@ -39,7 +39,6 @@ class Datasheet():
         xdf.columns = xdf.loc['Yr']
         cols = xdf.columns.sort_values(ascending=True)
         xdf = xdf[cols]
-        print(xdf)
         # rearranges the columns so that they are in the right order
         xdf = xdf.fillna(0)
         xdf = xdf.drop('Yr', axis = 0)
@@ -140,8 +139,13 @@ class Datasheet():
         for index, row in xdf.iterrows():
             xrow = row.tolist()
             xrow = xrow[1:]
-            if sum(xrow) == 0.0:
-                xdf = xdf.drop(index = index, axis = 0)
+            try:
+                if sum(xrow) == 0.0:
+                    xdf = xdf.drop(index = index, axis = 0)
+            except TypeError:
+                xrow = [int(i) for i in xrow]
+                if sum(xrow) == 0.0:
+                    xdf = xdf.drop(index = index, axis = 0)
         return xdf
 
 
@@ -429,6 +433,7 @@ def main(year1, year2, year3, path, prettyFormatting):
         # checks to make sure there are no missing year columns; necessary since we have lots of tribes who report intermittently
        xdf, missing_years = ds.empty_column_adder(xdf, years)
         # checks to see if the agency is a transit, so that it can feed it into the state wide operations financial summary loop
+       print(xdf)
        if agnc in ds.transit_list:
            if count == 0:
                finaldf = xdf

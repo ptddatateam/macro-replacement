@@ -47,6 +47,8 @@ class Datasheet():
     def empty_row_dropper(self, df):
         '''cuts out all of the empty rows from a dataframe'''
         self.df = df
+        print(df)
+        df = df.drop('Comments', axis = 0)
         for index, row in df.iterrows():
             xrow = row.tolist()
             if sum(xrow) == 0.0:

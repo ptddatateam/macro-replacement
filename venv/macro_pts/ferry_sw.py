@@ -93,7 +93,7 @@ class statewide_ferry_Datasheet():
         df = self.sum_formula(df, 'Total Other Expenditures', ['ls_rent_ag', 'oth_recon'])
         df = self.sum_formula(df, 'Total Local Revenues', ['Other Operating Sub-Total','sales_tax', 'dgf_prop_tax',
         'ut_tax', 'mvet', 'Farebox Revenues'])
-        df = self.sum_formula(df, 'Total State Revenues', ['def_grnt', 'st_op_rmg', 'st_op_regmg', 'st_op_sng',
+        df = self.sum_formula(df, 'Total State Revenues', ['deficitreim_grnt', 'st_op_rmg', 'st_op_regmg', 'st_op_sng',
             'st_op_ste', 'st_op_other', 'st_gas_tax', 'st_oth_tax'])
         df = self.sum_formula(df, 'Total Federal Revenues', ['fta_5307_op', 'fta_5307_prv', 'fta_5311_op', 'fta_5316_op',
         'fta_other_op'])
@@ -277,6 +277,6 @@ def main(year1, year2, year3, path):
 
 
 if __name__ == "__main__":
-    main(2015, 2016, 2017, r'I:\Public_Transportation\Data_Team\PT_Summary\PythonFiles\testfolder\ferry')
+    main(year1, year2, year3, path)
 
 

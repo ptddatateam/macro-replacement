@@ -28,7 +28,7 @@ class statewide_cp_Datasheet():
                                      cursorclass=pymysql.cursors.DictCursor)
         with connection.cursor() as cursor:
             # Read a single record
-            sql = """SELECT * from cpdata WHERE Yr in ('{}', '{}', '{}')""".format(year1, year2, year3)
+            sql = """SELECT * from cpdata as t1 join cp_data_type as t2 on t1.Agnc = t2.Agency where t2.Agency_Type = 'CP' AND Yr in ('{}', '{}', '{}')""".format(year1, year2, year3)
             cursor.execute(sql)
             result = cursor.fetchall()
 
@@ -39,16 +39,15 @@ class statewide_cp_Datasheet():
     def clean_results(self, results):
         self.results = results
         df = pd.DataFrame.from_records(results)
-        bad_data = ['DT', 'VP', 'RB', 'desc']  # strips out some bad data categories, TODO should fix this in db design
+        bad_data = ['desc']  # strips out some bad data categories, TODO should fix this in db design
         cols_to_drop = []
         for bad in bad_data:
             col_list = df.columns[df.columns.str.contains(bad)]
             cols_to_drop.append(col_list)
         cols_to_drop = list(itertools.chain(*cols_to_drop))  # collapses each list into a single list
         cols_to_drop = cols_to_drop + ['Agnc', 'cpdataindex']
-        oth_cols = ['oth_OpExp', 'oth_SpPsgr', 'oth_fare', 'oth_psgr', 'oth_rvh',
-                    'oth_rvm', 'Yr']  # may as well kill this bad other category while I am at it
-        cols_to_drop = cols_to_drop + oth_cols
+        #oth_cols = ['oth_OpExp', 'oth_SpPsgr', 'oth_fare', 'oth_psgr', 'oth_rvh',
+               #     'oth_rvm', 'Yr']  # may as well kill this bad other category while I am at it
         df = df.drop(cols_to_drop, axis=1)
         cols = df.columns.tolist()
         return cols
@@ -91,16 +90,13 @@ class statewide_cp_Datasheet():
     def build_calculated_fields(self, df):
         '''this function constructs the calculated field categories'''
         self.df = df
+        df.to_excel(r'I:\Public_Transportation\Data_Team\PT_Summary\2018\PTRS_Data\cp\community-providers-08-09\test.xlsx')
         df = df.reset_index()
         df = df.rename(columns={'index': 'category'})
-        df = self.sum_formula(df, 'Revenue Vehicle Miles', ['MB_rvm', 'CB_rvm', 'DR_rvm', 'IB_rvm'])
+        df = self.sum_formula(df, 'Revenue Vehicle Miles', ['MB_rvm', 'CB_rvm', 'DR_rvm'])
         df = self.sum_formula(df, 'Revenue Vehicle Hours', ['MB_rvh', 'CB_rvh', 'DR_rvh'])
-        df = self.sum_formula(df, 'Regular Unlinked Passenger Trips', ['MB_psgr', 'CB_psgr', 'DR_psgr', 'IB_psgr'])
-        try:
-            locs = df.loc[['MB_SpPsgr', 'CB_SpPsgr', 'DR_Sp_Psgr']]
-            df = self.sum_formula(df, 'Sponsored Unlinked Passenger Trips', ['MB_SpPsgr', 'CB_SpPsgr', 'DR_Sp_Psgr'])
-        except KeyError:
-            pass
+        df = self.sum_formula(df, 'Regular Unlinked Passenger Trips', ['MB_psgr', 'CB_psgr', 'DR_psgr'])
+        df = self.sum_formula(df, 'Sponsored Unlinked Passenger Trips', ['MB_SpPsgr', 'CB_SpPsgr', 'DR_Sp_Psgr'])
         df = self.sum_formula(df, 'Operating Local Sub-Total',
                               ['op_far', 'op_don', 'op_con', 'op_loc', 'op_st', 'op_oth_dgf', 'op_oth'])
         df = self.sum_formula(df, 'Capital Local Sub-Total',
@@ -462,11 +458,12 @@ class IB_SW_Rollup():
             return value
 
 
-def main(year1, year2, year3):
+def main(year1, year2, year3, output_path):
     sw_cp_ds =statewide_cp_Datasheet(year1, year2, year3)
     results = sw_cp_ds.pull_from_db(year1, year2, year3)
     columns_to_pull = sw_cp_ds.clean_results(results)
     df = sw_cp_ds.sql_sums(columns_to_pull, year1, year2, year3)
+    df = df.fillna(0.0)
     df = sw_cp_ds.build_calculated_fields(df)
     df = sw_cp_ds.empty_row_dropper(df)
     df = sw_cp_ds.percent_change_calculator(df, year2, year3)
@@ -478,12 +475,13 @@ def main(year1, year2, year3):
     df = sw_cp_ds.finalizing_datasheet(df)
     df = df.rename(columns={'category': 'Annual Operating Information'})
     df = df.replace('$0.0', '$0')
-    df.to_excel(r'I:\Public_Transportation\Data_Team\PT_Summary\PythonFiles\testfolder\cp\{} CP Compiled Years.xlsx'.format(year3),
+    df.to_excel(output_path + '\\community-providers-08-09\\{} CP Compiled Years.xlsx'.format(year3),
                    index=False, columns=None)
-    random_text = sw_cp_ds.random_text_generator(year3)
-    sw_cp_ds.to_csv(random_text, r'I:\Public_Transportation\Data_Team\PT_Summary\PythonFiles\testfolder\cp\CP {} Random Text.csv'.format(year3))
+    #random_text = sw_cp_ds.random_text_generator(year3)
+    #sw_cp_ds.to_csv(random_text, output_path + '\\community-providers-08-07\\{} Random Text.csv'.format(year3))
     isr = IB_SW_Rollup(year1, year2, year3)
     df = isr.ib_sql_sums(year1, year2, year3)
+    print(df)
     df = isr.build_calculated_fields(df)
     df = isr.call_sw_cp_class_methods(year1, year2, year3, df)
     df['One Year Change (%)'] = df['One Year Change (%)'].apply(lambda x: format(x, '.2f'))
@@ -492,7 +490,7 @@ def main(year1, year2, year3):
     df = df.rename(columns={'category': 'Annual Operating Information'})
     df = df.replace('$0.0', '$0')
     df.to_excel(
-        r'I:\Public_Transportation\Data_Team\PT_Summary\PythonFiles\testfolder\cp\{} IB Compiled Years.xlsx'.format(
+        r'I:\Public_Transportation\Data_Team\PT_Summary\2018\PTRS_Data\cp\community-providers-08-09\{} IB Compiled Years.xlsx'.format(
             year3),index=False, columns=None)
 
 
@@ -503,4 +501,4 @@ def main(year1, year2, year3):
 
 
 if __name__ == "__main__":
-    main(2015, 2016, 2017)
+    main(2016, 2017, 2018)

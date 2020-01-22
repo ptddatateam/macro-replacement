@@ -2,6 +2,8 @@ import pandas as pd
 import numpy as np
 import pymysql.cursors
 import itertools
+import datetime
+import os
 # I imported a few things
 
 
@@ -20,6 +22,7 @@ class Datasheet():
         self.year1 = year1
         self.year2 = year2
         self.year3 = year3
+        self.agency = agency
         connection = pymysql.connect(host='UCC1038029',
                                      user='nathans',
                                      password='shalom33',
@@ -28,7 +31,7 @@ class Datasheet():
 
         with connection.cursor() as cursor:
             # Read a single record
-            sql = """SELECT * from cpdata WHERE Yr in ('{}', '{}', '{}')""".format(year1, year2, year3, agency)
+            sql = """SELECT * from cpdata WHERE Agnc = '{}' and Yr in ('{}', '{}', '{}')""".format(agency, year1, year2, year3)
             cursor.execute(sql)
             result = cursor.fetchall()
 
@@ -39,15 +42,15 @@ class Datasheet():
         self.results = results
         self.cp = cp
         df = pd.DataFrame.from_records(results)
-        bad_data = ['DT', 'VP', 'RB', 'desc'] # strips out some bad data categories, TODO should fix this in db design
+        bad_data = ['desc'] # strips out some bad data categories, TODO should fix this in db design
         cols_to_drop = []
         for bad in bad_data:
             col_list  = df.columns[df.columns.str.contains(bad)]
             cols_to_drop.append(col_list)
         cols_to_drop = list(itertools.chain(*cols_to_drop)) # collapses each list into a single list
         cols_to_drop = cols_to_drop + ['Agnc', 'cpdataindex']
-        oth_cols = ['oth_OpExp', 'oth_SpPsgr', 'oth_fare', 'oth_psgr', 'oth_rvh', 'oth_rvm'] # may as well kill this bad other category while I am at it
-        cols_to_drop = cols_to_drop + oth_cols
+        #oth_cols = ['oth_OpExp', 'oth_SpPsgr', 'oth_fare', 'oth_psgr', 'oth_rvh', 'oth_rvm'] # may as well kill this bad other category while I am at it
+        #cols_to_drop = cols_to_drop + oth_cols
         df = df.drop(cols_to_drop, axis =1 )
         df = df.set_index('Yr')
         df = df.transpose()
@@ -59,6 +62,9 @@ class Datasheet():
         self.df = df
         for index, row in df.iterrows():
             xrow = row.tolist()
+            xrow = xrow[1:]
+            for i in xrow:
+                print(i)
             if sum(xrow) == 0.0:
                 df = df.drop(index = index, axis = 0)
         return df
@@ -271,15 +277,18 @@ def main(year1, year2, year3, path):
                'Lower Columbia Community Action Council', 'Mt. Si Senior Center',
                'Northwest Stagelines Inc dba Northwestern Trailway',
                'Okanogan County Transportation & Nutrition',
-               'People for People Moses Lake', 'People for People Yakima', 'Rural Resource Community Action',
+               'People for People Moses Lake', 'People for People Yakima', 'Rural Resources Community Action',
                'Senior Services of Snohomish County', 'Skamania County Senior Services',
                'Smith6 LLC', 'Special Mobility Services', 'Thurston Regional Planning Council',
                'Wahkiakum County Health & Human Services', 'White Pass Community Services Coalition']
     for cp in cp_list:
+        print(cp)
         ds = Datasheet(cp, year1, year2, year3)
         cp_df = ds.pull_from_db(cp, year1, year2, year3)
         cp_df = ds.clean_dataframe(cp_df, cp)
+        cp_df = cp_df.fillna(0.0)
         cp_df = ds.revenue_sum_formulas(cp_df)
+        cp_df = ds.empty_row_dropper(cp_df)
         cp_df = ds.percent_change_calculator(cp_df, year2, year3)
         cp_df = ds.pretty_formatting(cp_df, year1, year2, year3)
         cp_df['One Year Change (%)'] = cp_df['One Year Change (%)'].apply(lambda x: format(x, '.2f'))
@@ -291,6 +300,6 @@ def main(year1, year2, year3, path):
         date = datetime.date.today().strftime("%m-%d")
         if os.path.exists(path + '\\community-providers-{}'.format(date)) == False:
             os.mkdir(path + '\\community-providers-{}'.format(date))
-        cp_df.to_excel(path + '\\community-providers-{}'.format(date) + '{}.xlsx'.format(cp), index = False)
+        cp_df.to_excel(path + '\\community-providers-{}\\'.format(date) + '{}.xlsx'.format(cp), index = False)
 
 

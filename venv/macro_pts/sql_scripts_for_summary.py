@@ -108,7 +108,7 @@ operating_revenues = '''Select Yr, SUM(sales_tax+utility_tax+mvet+fta_5307_op +f
 
 fare_changes = '''SELECT Yr, t1.Agnc, agencytype, SUM(rev_do_van +rev_do_fixed+rev_do_light+rev_do_route + rev_do_demand+rev_do_CB+rev_do_RB + rev_do_SR + rev_do_TB +rev_pt_fixed +rev_pt_com + rev_pt_light + rev_pt_route + rev_pt_demand+rev_pt_CB +rev_pt_DT +rev_pt_RB+ rev_pt_SR) as Fares from ptsummary_transit.transit_data as t1 inner join ptsummary_transit.agencytype as t2 on t1.Agnc = t2.Agency where t2.agencytype in ('urban', 'rural', 'small urban') and t1.Yr in {} Group By Agnc, Yr;'''
 
-farebox_changes = '''With summary_table AS (SELECT Yr, Agnc, t2.agencytype, SUM(rev_do_fixed+rev_do_light+rev_do_route + rev_do_demand+rev_do_CB+rev_do_RB + rev_do_SR + rev_do_TB +rev_pt_fixed+rev_pt_ferry +rev_pt_com + rev_pt_light
+farebox_changes = '''With summary_table AS (SELECT Yr, Agnc, t2.agencytype, SUM(rev_do_fixed+rev_do_light+rev_do_route + rev_do_demand+rev_do_CB+rev_do_RB + rev_do_SR + rev_do_TB +rev_pt_fixed +rev_pt_com + rev_pt_light
  + rev_pt_route + rev_pt_demand+rev_pt_CB +rev_pt_DT +rev_pt_RB) As Fares
 from ptsummary_transit.transit_data as t1 inner join ptsummary_transit.agencytype as t2 on t1.Agnc = t2.Agency where t2.agencytype in ('urban', 'rural', 'small urban') and
  t1.Yr in {} Group By Agnc, Yr)  

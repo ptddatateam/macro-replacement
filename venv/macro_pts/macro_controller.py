@@ -12,7 +12,6 @@ def main(year_of_report, output_path, prettyFormatting):
     year1 = year_of_report-2
 
     mode = input('Please select the mode you would like to output: transits, community providers, ferries, or all?')
-    mode = 'transits'
     if mode == 'transits':
         transits.main(year1, year2, year_of_report, output_path, prettyFormatting)
     elif mode == 'community providers':
@@ -20,7 +19,7 @@ def main(year_of_report, output_path, prettyFormatting):
         cproviders_sw.main(year1, year2, year_of_report, output_path)
     elif mode == 'ferries':
         ferry_macro.main(year1, year2, year_of_report, output_path)
-        ferry_sw.main(year1, year2, year_of_report. output_path)
+        ferry_sw.main(year1, year2, year_of_report, output_path)
     elif mode == 'all':
         transits.main(year1, year2, year_of_report, output_path, prettyFormatting)
         cproviders.main(year1, year2, year_of_report, output_path)
