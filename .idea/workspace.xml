@@ -1,0 +1,1087 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c1f1a6f3-d207-4c11-9b0a-e47fe21499c3" name="Default" comment="had some issues">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ferryreporttables.py" beforeDir="false" afterPath="$PROJECT_DIR$/ferryreporttables.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/macro_pts/cproviders.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/macro_pts/cproviders.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/macro_pts/cproviders_sw.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/macro_pts/cproviders_sw.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/macro_pts/ferry_macro.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/macro_pts/ferry_macro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/macro_pts/ferry_sw.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/macro_pts/ferry_sw.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/macro_pts/macro_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/macro_pts/macro_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/macro_pts/randomTextTransit.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/macro_pts/randomTextTransit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/macro_pts/sql_scripts_for_summary.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/macro_pts/sql_scripts_for_summary.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/macro_pts/transits.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/macro_pts/transits.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/ptsummarytoolset/cproviders.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/ptsummarytoolset/cproviders_sw.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/ptsummarytoolset/ferry_macro.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/ptsummarytoolset/ntd os scripts.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/ptsummarytoolset/ntd os scripts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/ptsummarytoolset/ntd_link_scraper.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/ptsummarytoolset/ntd_link_scraper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/ptsummarytoolset/ntd_submission_scraper.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/ptsummarytoolset/ntd_submission_scraper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/ptsummarytoolset/sql_scripts_for_summary.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/ptsummarytoolset/statewide_transit_rollup.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/ptsummarytoolset/transits.py" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/macro_pts/transits.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3910">
+              <caret line="235" selection-start-line="235" selection-end-line="235" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/ptsummarytoolset/ntd_link_scraper.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="793">
+              <caret line="51" column="36" lean-forward="true" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
+              <folding>
+                <element signature="e#0#30#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/ptsummarytoolset/ntd_submission_scraper.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="84" column="22" lean-forward="true" selection-end-line="120" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_4.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="32" column="8" selection-end-line="104" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/a-90 scraper.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="20" column="59" lean-forward="true" selection-start-line="20" selection-start-column="59" selection-end-line="20" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/ptsummarytoolset/ntd os scripts.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/ptsummarytoolset/ntd_tamp_plans.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="561">
+              <caret line="75" column="71" selection-start-line="75" selection-start-column="71" selection-end-line="75" selection-end-column="71" />
+              <folding>
+                <element signature="e#0#30#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>vanpool</find>
+      <find>recent</find>
+      <find>other_rev</find>
+      <find>df78</find>
+      <find>button</find>
+      <find>round</find>
+      <find>sw_invest_table</find>
+      <find>deduplicate</find>
+      <find>other_in</find>
+      <find>to_csv</find>
+      <find>inv_df</find>
+      <find>rev_df</find>
+      <find>Group By Agnc</find>
+      <find>pd.read</find>
+      <find>pretty</find>
+      <find>pretty_formatting_sw</find>
+      <find>pretty_formatting</find>
+      <find>fix_floating_zero</find>
+      <find>template_sorter</find>
+      <find>dedu</find>
+      <find>percentage</find>
+      <find>rev</find>
+      <find>modify_per</find>
+      <find>empty</find>
+      <find>print</find>
+      <find>rural</find>
+      <find>st_cg_rmg</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>dfnew</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="schumen" />
+      </list>
+    </option>
+    <option name="UPDATE_TYPE" value="MERGE" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="errors" />
+      </map>
+    </option>
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="CREATE_PULL_REQUEST_DEFAULT_BRANCH" value="master" />
+    <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_USER" value="ptddatateam" />
+    <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_NAME" value="macro-replacement" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/venv/ctrpolicy/geocoder.py" />
+        <option value="$PROJECT_DIR$/NTDAssetManagementAggregator.py" />
+        <option value="$PROJECT_DIR$/simpleexport.py" />
+        <option value="$PROJECT_DIR$/venv/ptsummarytoolset/ferryreporttables.py" />
+        <option value="$PROJECT_DIR$/ntdworkbookscript.py" />
+        <option value="$PROJECT_DIR$/venv/ptsummarytoolset/PTSummaryFerryTableGenerator.py" />
+        <option value="$PROJECT_DIR$/ferrytablegenerator.py" />
+        <option value="$PROJECT_DIR$/sqlscripts.py" />
+        <option value="$PROJECT_DIR$/ctrexportdata.py" />
+        <option value="$PROJECT_DIR$/simplectrexport.py" />
+        <option value="$PROJECT_DIR$/PTSummaryTableSplitter.py" />
+        <option value="$PROJECT_DIR$/venv/scrapers/ntdscraper.py" />
+        <option value="$PROJECT_DIR$/venv/scrapers/ntdfiledownloader.py" />
+        <option value="$PROJECT_DIR$/venv/transits.py" />
+        <option value="$PROJECT_DIR$/ptsummaryreplacement/pyvenv.cfg" />
+        <option value="$PROJECT_DIR$/ptsummaryreplacement/transits.py" />
+        <option value="$PROJECT_DIR$/venv/scrapers/mlmethods.py" />
+        <option value="$PROJECT_DIR$/venv/ctrpolicy/ctrvalidator.py" />
+        <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/venv/ptsummarytoolset/ntd_tamp_plans.py" />
+        <option value="$PROJECT_DIR$/emailz.py" />
+        <option value="$PROJECT_DIR$/venv/ptsummarytoolset/sql_scripts_for_summary.py" />
+        <option value="$PROJECT_DIR$/venv/ptsummarytoolset/cproviders_sw.py" />
+        <option value="$PROJECT_DIR$/venv/ptsummarytoolset/ferry_sw.py" />
+        <option value="$PROJECT_DIR$/venv/ptsummarytoolset/ferry_macro.py" />
+        <option value="$PROJECT_DIR$/venv/ptsummarytoolset/cproviders.py" />
+        <option value="$PROJECT_DIR$/venv/ptsummarytoolset/ptsummary_portal_test.py" />
+        <option value="$PROJECT_DIR$/pt_summary_data_request.html" />
+        <option value="$PROJECT_DIR$/emailtemplates.py" />
+        <option value="$PROJECT_DIR$/pt_summary_emails.py" />
+        <option value="$PROJECT_DIR$/venv/ptsummarytoolset/statewide_transit_rollup.py" />
+        <option value="$PROJECT_DIR$/venv/ptsummarytoolset/macro_controller.py" />
+        <option value="$PROJECT_DIR$/venv/ptsummarytoolset/transits.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_1.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_2.py" />
+        <option value="$PROJECT_DIR$/sptvalidation.py" />
+        <option value="$PROJECT_DIR$/ferryreporttables.py" />
+        <option value="$PROJECT_DIR$/venv/macro_pts/ferry_macro.py" />
+        <option value="$PROJECT_DIR$/venv/macro_pts/ferry_sw.py" />
+        <option value="$PROJECT_DIR$/venv/macro_pts/transits.py" />
+        <option value="$PROJECT_DIR$/venv/macro_pts/randomTextTransit.py" />
+        <option value="$PROJECT_DIR$/venv/macro_pts/cproviders.py" />
+        <option value="$PROJECT_DIR$/venv/macro_pts/cproviders_sw.py" />
+        <option value="$PROJECT_DIR$/venv/macro_pts/sql_scripts_for_summary.py" />
+        <option value="$PROJECT_DIR$/venv/macro_pts/macro_controller.py" />
+        <option value="$PROJECT_DIR$/venv/macro_pts/statewide_transit_rollup.py" />
+        <option value="$PROJECT_DIR$/venv/ptsummarytoolset/ntd_link_scraper.py" />
+        <option value="$PROJECT_DIR$/venv/ptsummarytoolset/ntd os scripts.py" />
+        <option value="$PROJECT_DIR$/venv/ptsummarytoolset/ntd_submission_scraper.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_4.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/a-90 scraper.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="ctr" type="cbb8eebc:String" user="ctr" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ctr" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ctr" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ctr" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ctr" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ctr" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ctr" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
+              <item name="ctrpolicy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ctr" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ctr" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
+              <item name="macro_pts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ctr" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ctr" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
+              <item name="ptsummarytoolset" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ctr" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ctr" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
+              <item name="scrapers" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="Python" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\SchumeN\PycharmProjects\ctr" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\SchumeN\PycharmProjects\ctr\venv\macro_pts" />
+      <recent name="C:\Users\SchumeN\PycharmProjects\ctr\ptsummaryreplacement" />
+      <recent name="C:\Users\SchumeN\PycharmProjects\ctr\venv\scrapers" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.scratch_4">
+    <configuration name="macro_controller (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ctr" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv/macro_pts" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/macro_pts/macro_controller.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ntd_link_scraper" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ctr" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv/ptsummarytoolset" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/ptsummarytoolset/ntd_link_scraper.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ntd_submission_scraper" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ctr" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv/ptsummarytoolset" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/ptsummarytoolset/ntd_submission_scraper.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="randomTextTransit" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ctr" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv/macro_pts" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/macro_pts/randomTextTransit.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="scratch_4" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ctr" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch_4.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.scratch_4" />
+        <item itemvalue="Python.ntd_submission_scraper" />
+        <item itemvalue="Python.ntd_link_scraper" />
+        <item itemvalue="Python.macro_controller (1)" />
+        <item itemvalue="Python.randomTextTransit" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c1f1a6f3-d207-4c11-9b0a-e47fe21499c3" name="Default" comment="" />
+      <created>1524675513123</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1524675513123</updated>
+      <workItem from="1554153380461" duration="786000" />
+      <workItem from="1555084853191" duration="27296000" />
+      <workItem from="1555713722436" duration="19000" />
+      <workItem from="1555946517988" duration="2783000" />
+      <workItem from="1556906881752" duration="590000" />
+      <workItem from="1557781712143" duration="2635000" />
+      <workItem from="1558108713570" duration="611000" />
+      <workItem from="1558731019898" duration="1978000" />
+      <workItem from="1559256600589" duration="12758000" />
+      <workItem from="1559593779959" duration="764000" />
+      <workItem from="1562102158330" duration="1649000" />
+      <workItem from="1562167353907" duration="170000" />
+      <workItem from="1562190430747" duration="1117000" />
+      <workItem from="1562342788823" duration="63000" />
+      <workItem from="1562358291438" duration="7373000" />
+      <workItem from="1562606766697" duration="9822000" />
+      <workItem from="1562966439969" duration="7231000" />
+      <workItem from="1563214146303" duration="13345000" />
+      <workItem from="1563295544365" duration="19930000" />
+      <workItem from="1563466492754" duration="1393000" />
+      <workItem from="1563568473003" duration="4236000" />
+      <workItem from="1563813961585" duration="1211000" />
+      <workItem from="1564174779166" duration="23335000" />
+      <workItem from="1564493891854" duration="840000" />
+      <workItem from="1564594497634" duration="1543000" />
+      <workItem from="1565123334646" duration="8205000" />
+      <workItem from="1565299811670" duration="9135000" />
+      <workItem from="1566412967986" duration="750000" />
+      <workItem from="1566510901140" duration="3062000" />
+      <workItem from="1567795494071" duration="5842000" />
+      <workItem from="1568736329880" duration="1276000" />
+      <workItem from="1569259766573" duration="50000" />
+      <workItem from="1569427204356" duration="142000" />
+      <workItem from="1571089056313" duration="627000" />
+      <workItem from="1571154852356" duration="2206000" />
+      <workItem from="1571179804853" duration="968000" />
+      <workItem from="1573758267509" duration="937000" />
+      <workItem from="1573761775574" duration="149000" />
+      <workItem from="1578936216318" duration="618000" />
+      <workItem from="1579040886380" duration="2881000" />
+      <workItem from="1579716313181" duration="6986000" />
+    </task>
+    <task id="LOCAL-00001" summary="this is a test">
+      <created>1553703787145</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1553703787145</updated>
+    </task>
+    <task id="LOCAL-00002" summary="this is a test">
+      <created>1553703964570</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1553703964570</updated>
+    </task>
+    <task id="LOCAL-00003" summary="final ferry macro">
+      <created>1555092482058</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1555092482058</updated>
+    </task>
+    <task id="LOCAL-00004" summary="final ferry macro">
+      <created>1555105668988</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1555105668988</updated>
+    </task>
+    <task id="LOCAL-00005" summary="final ferry macro">
+      <created>1555430794798</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1555430794798</updated>
+    </task>
+    <task id="LOCAL-00006" summary="final ferry macro">
+      <created>1555946799516</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1555946799516</updated>
+    </task>
+    <task id="LOCAL-00007" summary="adding new functionality">
+      <created>1555946960510</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1555946960510</updated>
+    </task>
+    <task id="LOCAL-00008" summary="macro replacment updates">
+      <created>1562359484850</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1562359484850</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added random text transit; fixed some pervasive errors">
+      <created>1562619758732</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1562619758732</updated>
+    </task>
+    <task id="LOCAL-00010" summary="most of the way through random text">
+      <created>1563303070180</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1563303070182</updated>
+    </task>
+    <task id="LOCAL-00011" summary="finished random text; just need to add an output device, and hook it up to the macro controller">
+      <created>1563316664851</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1563316664851</updated>
+    </task>
+    <task id="LOCAL-00012" summary="finished random text">
+      <created>1563396165020</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1563396165020</updated>
+    </task>
+    <task id="LOCAL-00013" summary="adding new functionality">
+      <created>1563467359649</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1563467359649</updated>
+    </task>
+    <task id="LOCAL-00014" summary="adding new functionality">
+      <created>1563467899055</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1563467899055</updated>
+    </task>
+    <task id="LOCAL-00015" summary="had some issues">
+      <created>1564589650568</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1564589650568</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="187312000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1380597" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3298292" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.85520834" visible="true" weight="0.1744312" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39761648" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32936078" />
+      <window_info anchor="bottom" id="Python Console" order="8" weight="0.2112676" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.14479166" side_tool="true" weight="0.17334779" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="R Graphics" order="3" />
+      <window_info anchor="right" id="R Packages" order="4" />
+      <window_info anchor="right" id="SciView" order="5" sideWeight="0.4992785" weight="0.32995737" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" order="7" sideWeight="0.5007215" side_tool="true" visible="true" weight="0.18123667" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2675906" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3298292" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.85520834" visible="true" weight="0.24918744" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3985122" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32936078" />
+      <window_info anchor="bottom" id="Python Console" order="8" weight="0.2112676" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.14479166" side_tool="true" weight="0.17334779" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="R Graphics" order="3" />
+      <window_info anchor="right" id="R Packages" order="4" />
+      <window_info anchor="right" id="SciView" order="5" weight="0.32995737" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" order="7" side_tool="true" visible="true" weight="0.18496802" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="this is a test" />
+    <MESSAGE value="final ferry macro" />
+    <MESSAGE value="macro replacment updates" />
+    <MESSAGE value="added random text transit; fixed some pervasive errors" />
+    <MESSAGE value="most of the way through random text" />
+    <MESSAGE value="finished random text; just need to add an output device, and hook it up to the macro controller" />
+    <MESSAGE value="finished random text" />
+    <MESSAGE value="adding new functionality" />
+    <MESSAGE value="had some issues" />
+    <option name="LAST_COMMIT_MESSAGE" value="had some issues" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ctr$ferry_macro.coverage" NAME="ferry_macro Coverage Results" MODIFIED="1555532691190" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/ptsummarytoolset" />
+    <SUITE FILE_PATH="coverage/ctr$ferryreporttables.coverage" NAME="ferryreporttables Coverage Results" MODIFIED="1565123448522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ctr$ptsummary_portal_test.coverage" NAME="ptsummary_portal_test Coverage Results" MODIFIED="1558732383139" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/ptsummarytoolset" />
+    <SUITE FILE_PATH="coverage/ctr$emailtemplates.coverage" NAME="emailtemplates Coverage Results" MODIFIED="1559258157551" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ctr$macro_controller.coverage" NAME="macro_controller Coverage Results" MODIFIED="1562195716609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/ptsummarytoolset" />
+    <SUITE FILE_PATH="coverage/ctr$cproviders.coverage" NAME="cproviders Coverage Results" MODIFIED="1565212358556" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/macro_pts" />
+    <SUITE FILE_PATH="coverage/ctr$ntd_link_scraper.coverage" NAME="ntd_link_scraper Coverage Results" MODIFIED="1579041051756" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/ptsummarytoolset" />
+    <SUITE FILE_PATH="coverage/ctr$ferry_sw.coverage" NAME="ferry_sw Coverage Results" MODIFIED="1555103896732" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/ptsummarytoolset" />
+    <SUITE FILE_PATH="coverage/ctr$sptvalidation.coverage" NAME="sptvalidation Coverage Results" MODIFIED="1564424287345" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ctr$pt_summary_emails.coverage" NAME="pt_summary_emails Coverage Results" MODIFIED="1562102480815" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ctr$emailz.coverage" NAME="emailz Coverage Results" MODIFIED="1559318765077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ctr$statewide_transit_rollup.coverage" NAME="statewide_transit_rollup Coverage Results" MODIFIED="1562365088883" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/macro_pts" />
+    <SUITE FILE_PATH="coverage/ctr$macro_controller__1_.coverage" NAME="macro_controller (1) Coverage Results" MODIFIED="1568238817898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/macro_pts" />
+    <SUITE FILE_PATH="coverage/ctr$scratch_2.coverage" NAME="scratch_2 Coverage Results" MODIFIED="1564412177322" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
+    <SUITE FILE_PATH="coverage/ctr$transits.coverage" NAME="transits Coverage Results" MODIFIED="1562195550457" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/ptsummarytoolset" />
+    <SUITE FILE_PATH="coverage/ctr$scratch_4.coverage" NAME="scratch_4 Coverage Results" MODIFIED="1579720942789" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
+    <SUITE FILE_PATH="coverage/ctr$ntd_submission_scraper.coverage" NAME="ntd_submission_scraper Coverage Results" MODIFIED="1579041613582" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/ptsummarytoolset" />
+    <SUITE FILE_PATH="coverage/ctr$randomTextTransit.coverage" NAME="randomTextTransit Coverage Results" MODIFIED="1567795654981" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/macro_pts" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
+    <entry file="file://$PROJECT_DIR$/venv/scrapers/addresspuller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="50" column="55" selection-start-line="50" selection-start-column="55" selection-end-line="50" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fuzzymatch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="35" column="41" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simpleexport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/comparelisttosqldb.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="84" column="40" lean-forward="true" selection-start-line="84" selection-start-column="40" selection-end-line="84" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/ctrpolicy/geocoder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="6" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NTDAssetManagementAggregator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ntdworkbookscript.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3383">
+          <caret line="205" column="53" selection-start-line="205" selection-start-column="53" selection-end-line="205" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simplectrexport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/scrapers/scraper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ptsummaryreplacement/pyvenv.cfg" />
+    <entry file="file://$PROJECT_DIR$/ptsummaryreplacement/transits.py" />
+    <entry file="file://$PROJECT_DIR$/venv/scrapers/ntdfiledownloader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/scrapers/mlmethods.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="12" column="46" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sqlscripts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="250" lean-forward="true" selection-start-line="250" selection-end-line="250" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ctrexportdata.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/scrapers/glassdoorscraper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="35" column="53" lean-forward="true" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/ptsummarytoolset/ferryreporttables.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="42" column="29" lean-forward="true" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pt_summary_data_request.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="9" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/emailtemplates.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="611">
+          <caret line="141" selection-start-line="141" selection-end-line="141" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/scrapers/ntdscraper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="37" selection-start-line="37" selection-end-line="44" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pt_summary_emails.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="55" column="52" lean-forward="true" selection-start-line="55" selection-start-column="52" selection-end-line="55" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/ptsummarytoolset/ptsummary_portal_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="62" lean-forward="true" selection-start-line="20" selection-start-column="62" selection-end-line="20" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Continuum/anaconda3/Lib/site-packages/pymysql/err.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="526">
+          <caret line="108" selection-start-line="108" selection-end-line="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dbquery.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="22" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/ptsummarytoolset/PTSummaryFerryTableGenerator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ferrydata.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PTSummaryFerryTableGenerator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ferryreporttables.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="51" column="29" lean-forward="true" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ferrytablegenerator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1394">
+          <caret line="111" lean-forward="true" selection-start-line="111" selection-end-line="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/macro_pts/macro_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="32" selection-start-line="31" selection-end-line="32" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/ctrpolicy/ctrvalidator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2822">
+          <caret line="167" column="36" lean-forward="true" selection-start-line="167" selection-start-column="36" selection-end-line="167" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sptvalidation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="68" column="101" lean-forward="true" selection-start-line="68" selection-start-column="101" selection-end-line="68" selection-end-column="101" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/macro_pts/ferry_sw.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4573">
+          <caret line="273" column="33" selection-start-line="273" selection-start-column="33" selection-end-line="273" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/macro_pts/statewide_transit_rollup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/macro_pts/cproviders_sw.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1666">
+          <caret line="102" column="85" selection-start-line="102" selection-start-column="85" selection-end-line="102" selection-end-column="85" />
+          <folding>
+            <element signature="e#146#165#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/macro_pts/randomTextTransit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4505">
+          <caret line="271" selection-start-line="271" selection-end-line="271" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/emailz.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/macro_pts/cproviders.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="841">
+          <caret line="279" column="92" selection-start-line="279" selection-start-column="92" selection-end-line="279" selection-end-column="92" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/macro_pts/ferry_macro.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="841">
+          <caret line="238" column="26" selection-start-line="238" selection-start-column="26" selection-end-line="238" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/macro_pts/sql_scripts_for_summary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="97" column="81" selection-start-line="97" selection-start-column="81" selection-end-line="97" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/macro_pts/transits.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3910">
+          <caret line="235" selection-start-line="235" selection-end-line="235" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/ptsummarytoolset/ntd_link_scraper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="793">
+          <caret line="51" column="36" lean-forward="true" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/ptsummarytoolset/ntd_submission_scraper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="84" column="22" lean-forward="true" selection-end-line="120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/ptsummarytoolset/ntd os scripts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/ptsummarytoolset/ntd_tamp_plans.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="75" column="71" selection-start-line="75" selection-start-column="71" selection-end-line="75" selection-end-column="71" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_4.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="32" column="8" selection-end-line="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/a-90 scraper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="20" column="59" lean-forward="true" selection-start-line="20" selection-start-column="59" selection-end-line="20" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

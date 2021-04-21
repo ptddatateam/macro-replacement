@@ -54,6 +54,6 @@ def process_ferry_sheet(df):
     return df
 
 
-df = read_files(r'I:\Public_Transportation\Data_Team\PT_Summary\2018\Ferries\returned_data')
+df = read_files(r'C:\Users\SchumeN\Documents\TPS\ferryvalidator\Confirmed')
 
 print(df)
