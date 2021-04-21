@@ -3,15 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c1f1a6f3-d207-4c11-9b0a-e47fe21499c3" name="Default" comment="had some issues">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ferryreporttables.py" beforeDir="false" afterPath="$PROJECT_DIR$/ferryreporttables.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/macro_pts/cproviders.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/macro_pts/cproviders.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/macro_pts/cproviders_sw.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/macro_pts/cproviders_sw.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/macro_pts/ferry_macro.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/macro_pts/ferry_macro.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/macro_pts/ferry_sw.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/macro_pts/ferry_sw.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/macro_pts/macro_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/macro_pts/macro_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/macro_pts/randomTextTransit.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/macro_pts/randomTextTransit.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/macro_pts/sql_scripts_for_summary.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/macro_pts/sql_scripts_for_summary.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/macro_pts/transits.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/macro_pts/transits.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/ptsummarytoolset/cproviders.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/ptsummarytoolset/cproviders_sw.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/ptsummarytoolset/ferry_macro.py" beforeDir="false" />
@@ -31,22 +22,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/macro_pts/transits.py">
+        <entry file="file://$PROJECT_DIR$/venv/ptsummarytoolset/ntd_link_scraper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3910">
-              <caret line="235" selection-start-line="235" selection-end-line="235" />
+            <state relative-caret-position="1122">
+              <caret line="66" column="23" lean-forward="true" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="23" />
               <folding>
-                <element signature="e#0#22#0" expanded="true" />
+                <element signature="e#0#30#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/ptsummarytoolset/ntd_link_scraper.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/venv/ptsummarytoolset/ntd_submission_scraper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="793">
-              <caret line="51" column="36" lean-forward="true" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
+            <state relative-caret-position="458">
+              <caret line="47" column="51" lean-forward="true" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
@@ -55,45 +46,77 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/ptsummarytoolset/ntd_submission_scraper.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="84" column="22" lean-forward="true" selection-end-line="120" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_4.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="32" column="8" selection-end-line="104" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/a-90 scraper.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="20" column="59" lean-forward="true" selection-start-line="20" selection-start-column="59" selection-end-line="20" selection-end-column="59" />
+            <state relative-caret-position="102">
+              <caret line="6" column="56" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/ptsummarytoolset/ntd os scripts.py">
+        <entry file="file://$PROJECT_DIR$/venv/macro_pts/sql_scripts_for_summary.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="1870">
+              <caret line="110" selection-start-line="110" selection-end-line="110" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/a-90 scraper.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="663">
+              <caret line="51" column="35" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/emailz.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="43" lean-forward="true" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ntd_submission_scraper.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-763">
+              <caret line="26" column="28" lean-forward="true" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#30#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ntd_link_scraper.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" column="50" lean-forward="true" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
+              <folding>
+                <element signature="e#0#30#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/emailtemplates.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/venv/ptsummarytoolset/ntd_tamp_plans.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
+            <state relative-caret-position="1071">
               <caret line="75" column="71" selection-start-line="75" selection-start-column="71" selection-end-line="75" selection-end-column="71" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
@@ -141,6 +164,8 @@
       <find>print</find>
       <find>rural</find>
       <find>st_cg_rmg</find>
+      <find>elements---global_a</find>
+      <find>delay</find>
     </findStrings>
     <replaceStrings>
       <replace>dfnew</replace>
@@ -149,6 +174,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="Nathan Schumer" />
         <option value="schumen" />
       </list>
     </option>
@@ -168,8 +194,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/venv/ctrpolicy/geocoder.py" />
-        <option value="$PROJECT_DIR$/NTDAssetManagementAggregator.py" />
         <option value="$PROJECT_DIR$/simpleexport.py" />
         <option value="$PROJECT_DIR$/venv/ptsummarytoolset/ferryreporttables.py" />
         <option value="$PROJECT_DIR$/ntdworkbookscript.py" />
@@ -180,7 +204,6 @@
         <option value="$PROJECT_DIR$/simplectrexport.py" />
         <option value="$PROJECT_DIR$/PTSummaryTableSplitter.py" />
         <option value="$PROJECT_DIR$/venv/scrapers/ntdscraper.py" />
-        <option value="$PROJECT_DIR$/venv/scrapers/ntdfiledownloader.py" />
         <option value="$PROJECT_DIR$/venv/transits.py" />
         <option value="$PROJECT_DIR$/ptsummaryreplacement/pyvenv.cfg" />
         <option value="$PROJECT_DIR$/ptsummaryreplacement/transits.py" />
@@ -214,19 +237,21 @@
         <option value="$PROJECT_DIR$/venv/macro_pts/sql_scripts_for_summary.py" />
         <option value="$PROJECT_DIR$/venv/macro_pts/macro_controller.py" />
         <option value="$PROJECT_DIR$/venv/macro_pts/statewide_transit_rollup.py" />
-        <option value="$PROJECT_DIR$/venv/ptsummarytoolset/ntd_link_scraper.py" />
         <option value="$PROJECT_DIR$/venv/ptsummarytoolset/ntd os scripts.py" />
-        <option value="$PROJECT_DIR$/venv/ptsummarytoolset/ntd_submission_scraper.py" />
-        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_4.py" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/a-90 scraper.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_9.py" />
+        <option value="$PROJECT_DIR$/venv/scrapers/ntdfiledownloader.py" />
+        <option value="$PROJECT_DIR$/venv/ptsummarytoolset/ntd_link_scraper.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_5.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_4.py" />
+        <option value="$PROJECT_DIR$/venv/ptsummarytoolset/ntd_submission_scraper.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1904" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -234,17 +259,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <expand>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="ctr" type="cbb8eebc:String" user="ctr" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -281,6 +295,26 @@
               <item name="venv" type="462c0819:PsiDirectoryNode" />
               <item name="scrapers" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="ctr" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+            </path>
+            <path>
+              <item name="ctr" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+              <item name="Scratches" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="ctr" type="cbb8eebc:String" user="ctr" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -294,7 +328,7 @@
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="Python" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -318,8 +352,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.scratch_4">
-    <configuration name="macro_controller (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.ntd_submission_scraper">
+    <configuration name="a-90 scraper" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ctr" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -327,12 +361,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv/macro_pts" />
+      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/macro_pts/macro_controller.py" />
+      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/a-90 scraper.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -385,7 +419,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="randomTextTransit" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="ntdfiledownloader" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ctr" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -393,12 +427,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv/macro_pts" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv/scrapers" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/macro_pts/randomTextTransit.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/scrapers/ntdfiledownloader.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -407,14 +441,14 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="scratch_4" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="scratch_9" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ctr" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\SchumeN\AppData\Local\Continuum\anaconda3\python.exe" />
       <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -429,13 +463,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.a-90 scraper" />
+      <item itemvalue="Python.scratch_9" />
+      <item itemvalue="Python.ntdfiledownloader" />
+      <item itemvalue="Python.ntd_link_scraper" />
+      <item itemvalue="Python.ntd_submission_scraper" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.scratch_4" />
         <item itemvalue="Python.ntd_submission_scraper" />
         <item itemvalue="Python.ntd_link_scraper" />
-        <item itemvalue="Python.macro_controller (1)" />
-        <item itemvalue="Python.randomTextTransit" />
+        <item itemvalue="Python.ntdfiledownloader" />
+        <item itemvalue="Python.scratch_9" />
+        <item itemvalue="Python.a-90 scraper" />
       </list>
     </recent_temporary>
   </component>
@@ -489,7 +530,28 @@
       <workItem from="1573761775574" duration="149000" />
       <workItem from="1578936216318" duration="618000" />
       <workItem from="1579040886380" duration="2881000" />
-      <workItem from="1579716313181" duration="6986000" />
+      <workItem from="1579716313181" duration="16854000" />
+      <workItem from="1580172075912" duration="1117000" />
+      <workItem from="1580746784199" duration="484000" />
+      <workItem from="1580767801983" duration="1403000" />
+      <workItem from="1580941287798" duration="258000" />
+      <workItem from="1581119770539" duration="743000" />
+      <workItem from="1581348185752" duration="35000" />
+      <workItem from="1581368911550" duration="19000" />
+      <workItem from="1594076449228" duration="1321000" />
+      <workItem from="1594680112530" duration="7000" />
+      <workItem from="1594680286714" duration="342000" />
+      <workItem from="1597175464040" duration="961000" />
+      <workItem from="1597552943157" duration="19000" />
+      <workItem from="1597555678076" duration="1180000" />
+      <workItem from="1597612447882" duration="32000" />
+      <workItem from="1598535862147" duration="1232000" />
+      <workItem from="1598654444689" duration="7000" />
+      <workItem from="1610039494453" duration="19663000" />
+      <workItem from="1610389860606" duration="36505000" />
+      <workItem from="1611267792278" duration="1044000" />
+      <workItem from="1611694150163" duration="620000" />
+      <workItem from="1619024196532" duration="263000" />
     </task>
     <task id="LOCAL-00001" summary="this is a test">
       <created>1553703787145</created>
@@ -596,30 +658,51 @@
       <option name="project" value="LOCAL" />
       <updated>1564589650568</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="had some issues">
+      <created>1579733025840</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1579733025840</updated>
+    </task>
+    <task id="LOCAL-00017" summary="had some issues">
+      <created>1610744973872</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1610744973872</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Link scraper gets the link for each site; submission scraper pulls out each form, refer infra for documentation">
+      <created>1619024438312</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1619024438312</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="187312000" />
+    <option name="totallyTimeSpent" value="264435000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1380597" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16364606" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3298292" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.85520834" visible="true" weight="0.1744312" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.85520834" weight="0.16222222" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39761648" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32936078" />
-      <window_info anchor="bottom" id="Python Console" order="8" weight="0.2112676" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49946696" weight="0.32555556" />
+      <window_info anchor="bottom" id="Python Console" order="8" sideWeight="0.49946696" weight="0.21111111" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.14479166" side_tool="true" weight="0.17334779" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50053304" side_tool="true" weight="0.3288889" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -629,7 +712,7 @@
       <window_info anchor="right" id="R Packages" order="4" />
       <window_info anchor="right" id="SciView" order="5" sideWeight="0.4992785" weight="0.32995737" />
       <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" order="7" sideWeight="0.5007215" side_tool="true" visible="true" weight="0.18123667" />
+      <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" order="7" sideWeight="0.5007215" side_tool="true" visible="true" weight="0.09328358" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2675906" />
@@ -671,58 +754,35 @@
     <MESSAGE value="finished random text" />
     <MESSAGE value="adding new functionality" />
     <MESSAGE value="had some issues" />
-    <option name="LAST_COMMIT_MESSAGE" value="had some issues" />
+    <MESSAGE value="Link scraper gets the link for each site; submission scraper pulls out each form, refer infra for documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Link scraper gets the link for each site; submission scraper pulls out each form, refer infra for documentation" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ctr$scratch_9.coverage" NAME="scratch_9 Coverage Results" MODIFIED="1597555941551" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
     <SUITE FILE_PATH="coverage/ctr$ferry_macro.coverage" NAME="ferry_macro Coverage Results" MODIFIED="1555532691190" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/ptsummarytoolset" />
     <SUITE FILE_PATH="coverage/ctr$ferryreporttables.coverage" NAME="ferryreporttables Coverage Results" MODIFIED="1565123448522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ctr$ptsummary_portal_test.coverage" NAME="ptsummary_portal_test Coverage Results" MODIFIED="1558732383139" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/ptsummarytoolset" />
     <SUITE FILE_PATH="coverage/ctr$emailtemplates.coverage" NAME="emailtemplates Coverage Results" MODIFIED="1559258157551" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ctr$macro_controller.coverage" NAME="macro_controller Coverage Results" MODIFIED="1562195716609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/ptsummarytoolset" />
     <SUITE FILE_PATH="coverage/ctr$cproviders.coverage" NAME="cproviders Coverage Results" MODIFIED="1565212358556" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/macro_pts" />
-    <SUITE FILE_PATH="coverage/ctr$ntd_link_scraper.coverage" NAME="ntd_link_scraper Coverage Results" MODIFIED="1579041051756" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/ptsummarytoolset" />
+    <SUITE FILE_PATH="coverage/ctr$ntd_link_scraper.coverage" NAME="ntd_link_scraper Coverage Results" MODIFIED="1610057869060" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/ptsummarytoolset" />
     <SUITE FILE_PATH="coverage/ctr$ferry_sw.coverage" NAME="ferry_sw Coverage Results" MODIFIED="1555103896732" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/ptsummarytoolset" />
     <SUITE FILE_PATH="coverage/ctr$sptvalidation.coverage" NAME="sptvalidation Coverage Results" MODIFIED="1564424287345" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ctr$pt_summary_emails.coverage" NAME="pt_summary_emails Coverage Results" MODIFIED="1562102480815" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ctr$a_90_scraper.coverage" NAME="a-90 scraper Coverage Results" MODIFIED="1580146230100" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
     <SUITE FILE_PATH="coverage/ctr$emailz.coverage" NAME="emailz Coverage Results" MODIFIED="1559318765077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ctr$statewide_transit_rollup.coverage" NAME="statewide_transit_rollup Coverage Results" MODIFIED="1562365088883" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/macro_pts" />
     <SUITE FILE_PATH="coverage/ctr$macro_controller__1_.coverage" NAME="macro_controller (1) Coverage Results" MODIFIED="1568238817898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/macro_pts" />
+    <SUITE FILE_PATH="coverage/ctr$ntdfiledownloader.coverage" NAME="ntdfiledownloader Coverage Results" MODIFIED="1610043689923" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/scrapers" />
     <SUITE FILE_PATH="coverage/ctr$scratch_2.coverage" NAME="scratch_2 Coverage Results" MODIFIED="1564412177322" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
+    <SUITE FILE_PATH="coverage/ctr$ntd_os_scripts.coverage" NAME="ntd os scripts Coverage Results" MODIFIED="1579733361978" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/ptsummarytoolset" />
     <SUITE FILE_PATH="coverage/ctr$transits.coverage" NAME="transits Coverage Results" MODIFIED="1562195550457" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/ptsummarytoolset" />
-    <SUITE FILE_PATH="coverage/ctr$scratch_4.coverage" NAME="scratch_4 Coverage Results" MODIFIED="1579720942789" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
-    <SUITE FILE_PATH="coverage/ctr$ntd_submission_scraper.coverage" NAME="ntd_submission_scraper Coverage Results" MODIFIED="1579041613582" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/ptsummarytoolset" />
+    <SUITE FILE_PATH="coverage/ctr$scratch_4.coverage" NAME="scratch_4 Coverage Results" MODIFIED="1580148539125" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
+    <SUITE FILE_PATH="coverage/ctr$scratch_5.coverage" NAME="scratch_5 Coverage Results" MODIFIED="1579822286652" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
+    <SUITE FILE_PATH="coverage/ctr$ntd_submission_scraper.coverage" NAME="ntd_submission_scraper Coverage Results" MODIFIED="1610734324206" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/ptsummarytoolset" />
     <SUITE FILE_PATH="coverage/ctr$randomTextTransit.coverage" NAME="randomTextTransit Coverage Results" MODIFIED="1567795654981" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/macro_pts" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
-    <entry file="file://$PROJECT_DIR$/venv/scrapers/addresspuller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="50" column="55" selection-start-line="50" selection-start-column="55" selection-end-line="50" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fuzzymatch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="35" column="41" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simpleexport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/comparelisttosqldb.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="84" column="40" lean-forward="true" selection-start-line="84" selection-start-column="40" selection-end-line="84" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/ctrpolicy/geocoder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -751,22 +811,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/scrapers/scraper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ptsummaryreplacement/pyvenv.cfg" />
     <entry file="file://$PROJECT_DIR$/ptsummaryreplacement/transits.py" />
-    <entry file="file://$PROJECT_DIR$/venv/scrapers/ntdfiledownloader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/scrapers/mlmethods.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -813,20 +859,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="9" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/emailtemplates.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="611">
-          <caret line="141" selection-start-line="141" selection-end-line="141" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/scrapers/ntdscraper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="37" selection-start-line="37" selection-end-line="44" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -961,39 +993,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/macro_pts/statewide_transit_rollup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/macro_pts/cproviders_sw.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1666">
           <caret line="102" column="85" selection-start-line="102" selection-start-column="85" selection-end-line="102" selection-end-column="85" />
           <folding>
             <element signature="e#146#165#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/macro_pts/randomTextTransit.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4505">
-          <caret line="271" selection-start-line="271" selection-end-line="271" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/emailz.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1018,27 +1023,156 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/macro_pts/sql_scripts_for_summary.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="97" column="81" selection-start-line="97" selection-start-column="81" selection-end-line="97" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/macro_pts/transits.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3910">
-          <caret line="235" selection-start-line="235" selection-end-line="235" />
+        <state relative-caret-position="259">
+          <caret line="217" column="55" selection-start-line="217" selection-start-column="55" selection-end-line="217" selection-end-column="55" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_9.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="5" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/macro_pts/statewide_transit_rollup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2074">
+          <caret line="122" column="70" selection-start-line="122" selection-start-column="70" selection-end-line="122" selection-end-column="70" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql_scripts_for_summary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="597">
+          <caret line="89" selection-start-line="89" selection-end-line="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/macro_pts/randomTextTransit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2975">
+          <caret line="181" column="1" selection-start-line="181" selection-start-column="1" selection-end-line="181" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/scrapers/scraper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="21" column="40" lean-forward="true" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/ptsummarytoolset/ntd os scripts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/scrapers/ntdscraper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/scrapers/ntdfiledownloader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="34" column="139" selection-start-line="34" selection-end-line="34" selection-end-column="139" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_5.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1819">
+          <caret line="119" column="38" selection-start-line="119" selection-end-line="120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_4.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="56" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/macro_pts/sql_scripts_for_summary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1870">
+          <caret line="110" selection-start-line="110" selection-end-line="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/a-90 scraper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="51" column="35" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/emailtemplates.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/ptsummarytoolset/ntd_tamp_plans.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1071">
+          <caret line="75" column="71" selection-start-line="75" selection-start-column="71" selection-end-line="75" selection-end-column="71" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/emailz.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="43" lean-forward="true" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ntd_submission_scraper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-763">
+          <caret line="26" column="28" lean-forward="true" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ntd_link_scraper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="50" lean-forward="true" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/venv/ptsummarytoolset/ntd_link_scraper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="793">
-          <caret line="51" column="36" lean-forward="true" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
+        <state relative-caret-position="1122">
+          <caret line="66" column="23" lean-forward="true" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="23" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
           </folding>
@@ -1047,39 +1181,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/ptsummarytoolset/ntd_submission_scraper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="84" column="22" lean-forward="true" selection-end-line="120" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/ptsummarytoolset/ntd os scripts.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/ptsummarytoolset/ntd_tamp_plans.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="75" column="71" selection-start-line="75" selection-start-column="71" selection-end-line="75" selection-end-column="71" />
+        <state relative-caret-position="458">
+          <caret line="47" column="51" lean-forward="true" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_4.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="32" column="8" selection-end-line="104" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/a-90 scraper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="20" column="59" lean-forward="true" selection-start-line="20" selection-start-column="59" selection-end-line="20" selection-end-column="59" />
         </state>
       </provider>
     </entry>
